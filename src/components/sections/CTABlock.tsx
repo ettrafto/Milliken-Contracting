@@ -20,12 +20,12 @@ export function CTABlock({
   return (
     <Section background="charcoal">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
-        <div className="text-center mb-10">
-          <h2 className="font-[family-name:var(--font-display)] text-2xl md:text-3xl lg:text-4xl font-semibold text-white mb-4">
+        <div className="text-center mb-12">
+          <h2 className="font-[family-name:var(--font-display)] text-[var(--text-section)] font-semibold text-white mb-4 tracking-[var(--tracking-tight)]">
             {title}
           </h2>
           {subtitle && (
-            <p className="text-white/80 text-lg max-w-2xl mx-auto">{subtitle}</p>
+            <p className="text-white/80 text-lg max-w-xl mx-auto leading-relaxed">{subtitle}</p>
           )}
         </div>
 
@@ -38,7 +38,7 @@ export function CTABlock({
             <Button
               href={ctaHref}
               variant="primary"
-              className="!bg-white !text-[var(--color-charcoal)] hover:!bg-white/90"
+              className="!bg-white !text-[var(--color-metallic-blue)] hover:!bg-white/90 !rounded-sm"
             >
               {ctaText}
             </Button>

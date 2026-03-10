@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { navigation } from '../../data';
+import { navigation, companyInfo } from '../../data';
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -12,21 +12,21 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link
             to="/"
-            className="font-[family-name:var(--font-display)] text-xl md:text-2xl font-semibold text-[var(--color-charcoal)] hover:text-[var(--color-terracotta)] transition-colors"
+            className="font-[family-name:var(--font-display)] text-2xl md:text-3xl font-semibold tracking-tight text-[var(--color-metallic-blue)] hover:text-[var(--color-terracotta)] transition-colors"
           >
-            Jorgen Construction
+            {companyInfo.name}
           </Link>
 
           {/* Desktop nav */}
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden md:flex items-center gap-10">
             {navigation.map((item) => (
               <li key={item.href}>
                 <Link
                   to={item.href}
-                  className={`text-sm font-medium transition-colors ${
+                  className={`text-[0.9375rem] font-medium tracking-[var(--tracking-wide)] transition-colors ${
                     location.pathname === item.href
                       ? 'text-[var(--color-terracotta)]'
-                      : 'text-[var(--color-text)] hover:text-[var(--color-terracotta)]'
+                      : 'text-[var(--color-text)] hover:text-[var(--color-terracotta)] hover:opacity-80'
                   }`}
                 >
                   {item.label}
@@ -38,7 +38,7 @@ export function Navbar() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="md:hidden p-2 text-[var(--color-charcoal)]"
+            className="md:hidden p-2 text-[var(--color-metallic-blue)]"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
@@ -70,12 +70,12 @@ export function Navbar() {
 
         {/* Mobile nav */}
         {mobileOpen && (
-          <ul className="md:hidden py-4 border-t border-[var(--color-border)]">
+          <ul className="md:hidden py-4 border-t border-[var(--color-border)] space-y-1">
             {navigation.map((item) => (
               <li key={item.href}>
                 <Link
                   to={item.href}
-                  className={`block py-3 text-base font-medium ${
+                  className={`block py-4 text-base font-medium ${
                     location.pathname === item.href
                       ? 'text-[var(--color-terracotta)]'
                       : 'text-[var(--color-text)]'

@@ -18,11 +18,11 @@ export function Button({
   className = '',
 }: ButtonProps) {
   const baseStyles =
-    'inline-flex items-center justify-center px-8 py-3 font-medium transition-all duration-200 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-terracotta)]';
+    'inline-flex items-center justify-center font-medium transition-all duration-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-terracotta)] tracking-wide';
   const primaryStyles =
-    'bg-[var(--color-terracotta)] text-white hover:bg-[#b06a4d] shadow-md hover:shadow-lg';
+    'px-10 py-3.5 bg-[var(--color-terracotta)] text-white hover:bg-[#A88B3A] shadow-md hover:shadow-md';
   const secondaryStyles =
-    'border-2 border-[var(--color-charcoal)] text-[var(--color-charcoal)] hover:bg-[var(--color-charcoal)] hover:text-white';
+    'px-8 py-3 border-2 border-[var(--color-metallic-blue)] text-[var(--color-metallic-blue)] hover:bg-[var(--color-metallic-blue)] hover:text-white';
 
   const styles = `${baseStyles} ${variant === 'primary' ? primaryStyles : secondaryStyles} ${className}`;
 

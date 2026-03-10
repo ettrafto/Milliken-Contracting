@@ -6,12 +6,12 @@ interface TestimonialCardProps {
 
 export function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
-    <blockquote className="bg-white p-6 md:p-8 rounded-lg shadow-md h-full flex flex-col">
+    <blockquote className="bg-white p-6 md:p-8 rounded-sm shadow-md h-full flex flex-col">
       <p className="text-[var(--color-text)] leading-relaxed mb-6 flex-1 italic">
         &ldquo;{testimonial.quote}&rdquo;
       </p>
       <footer>
-        <cite className="not-italic font-semibold text-[var(--color-charcoal)]">
+        <cite className="not-italic font-semibold text-[var(--color-metallic-blue)] tracking-[var(--tracking-tight)]">
           {testimonial.author}
         </cite>
         {testimonial.roleOrLocation && (

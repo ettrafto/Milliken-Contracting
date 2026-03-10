@@ -132,7 +132,7 @@ export function ContactForm({ variant = 'light' }: ContactFormProps) {
         <p className="text-red-600 text-sm">Something went wrong. Please try again.</p>
       )}
 
-      <Button type="submit" variant="primary" className={`w-full ${isDark ? '!bg-white !text-[var(--color-charcoal)] hover:!bg-white/90' : ''}`}>
+      <Button type="submit" variant="primary" className={`w-full ${isDark ? '!bg-white !text-[var(--color-metallic-blue)] hover:!bg-white/90' : ''}`}>
         {status === 'submitting' ? 'Sending...' : 'Submit Request'}
       </Button>
     </form>

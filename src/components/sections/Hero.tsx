@@ -2,28 +2,36 @@ import { Button } from '../ui/Button';
 
 interface HeroProps {
   image: string;
+  alt: string;
   tagline: string;
+  subtitle?: string;
   ctaText: string;
   ctaHref: string;
 }
 
-export function Hero({ image, tagline, ctaText, ctaHref }: HeroProps) {
+export function Hero({ image, alt, tagline, subtitle, ctaText, ctaHref }: HeroProps) {
   return (
-    <section className="relative h-[70vh] min-h-[500px] md:h-[80vh] overflow-hidden">
+    <section className="relative min-h-[60vh] md:min-h-[75vh] lg:min-h-[85vh] overflow-hidden">
       <img
         src={image}
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover"
+        alt={alt}
+        className="absolute inset-0 w-full h-full object-cover object-center"
+        fetchPriority="high"
       />
-      <div className="absolute inset-0 bg-black/40" />
-      <div className="relative h-full flex flex-col items-center justify-center text-center text-white px-6">
-        <h1 className="font-[family-name:var(--font-display)] text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 max-w-4xl">
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
+      <div className="relative min-h-[60vh] md:min-h-[75vh] lg:min-h-[85vh] flex flex-col items-center justify-center text-center text-white px-6 md:px-8 lg:px-12">
+        <h1 className="font-[family-name:var(--font-display)] text-[var(--text-hero)] font-medium tracking-[var(--tracking-tight)] max-w-4xl">
           {tagline}
         </h1>
+        {subtitle && (
+          <p className="mt-4 text-lg md:text-xl text-white/90 max-w-2xl leading-relaxed">
+            {subtitle}
+          </p>
+        )}
         <Button
           href={ctaHref}
           variant="primary"
-          className="!bg-white !text-[var(--color-charcoal)] hover:!bg-white/90"
+          className="mt-8 md:mt-10 !bg-white !text-[var(--color-metallic-blue)] hover:!bg-white/90 !rounded-sm uppercase tracking-widest text-sm"
         >
           {ctaText}
         </Button>

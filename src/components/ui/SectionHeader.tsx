@@ -13,15 +13,15 @@ export function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <div
-      className={`mb-10 md:mb-12 ${
+      className={`mb-12 md:mb-16 ${
         align === 'center' ? 'text-center' : ''
       } ${className}`}
     >
-      <h2 className="font-[family-name:var(--font-display)] text-2xl md:text-3xl lg:text-4xl font-semibold text-[var(--color-text)] mb-4">
+      <h2 className="font-[family-name:var(--font-display)] text-[var(--text-section)] font-semibold text-[var(--color-text)] mb-4 tracking-[var(--tracking-tight)]">
         {title}
       </h2>
       {subtitle && (
-        <p className="text-base md:text-lg text-[var(--color-text-muted)] max-w-2xl leading-relaxed mx-auto">
+        <p className={`text-base md:text-lg text-[var(--color-text-muted)] max-w-xl leading-relaxed ${align === 'center' ? 'mx-auto' : ''}`}>
           {subtitle}
         </p>
       )}

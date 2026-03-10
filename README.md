@@ -1,6 +1,6 @@
 # Jorgen Construction Website
 
-A professional 5-page construction company website built with React, TypeScript, Vite, and Tailwind CSS.
+A professional 4-page construction company website built with React, TypeScript, Vite, and Tailwind CSS.
 
 ## Tech Stack
 
@@ -26,7 +26,7 @@ src/
 │   ├── layout/     # Navbar, Footer, PageLayout
 │   ├── sections/   # Hero, ServiceCard, ContactForm, etc.
 │   └── ui/         # Button, Section, SectionHeader
-├── pages/          # HomePage, AboutPage, ServicesPage, ProjectsPage, ContactPage
+├── pages/          # HomePage, AboutPage, ServicesPage, ContactPage
 ├── data/           # Content (services, projects, testimonials, etc.)
 ├── types/          # TypeScript interfaces
 └── index.css       # Global styles + Tailwind
@@ -38,7 +38,6 @@ Edit files in `src/data/` to update site content:
 
 - `navigation.ts` - Nav links
 - `services.ts` - Services list
-- `projects.ts` - Portfolio projects
 - `testimonials.ts` - Client reviews
 - `company.ts` - Company info
 - `contact.ts` - Contact details + map embed URL
@@ -58,11 +57,10 @@ Without an endpoint, the form runs in demo mode (simulates success).
 Place client images in `public/images/`:
 
 - `hero/` - Hero section images
-- `projects/` - Project photos
 - `services/` - Service images
 - `about/` - About/team photos
 
-Update paths in `src/data/services.ts` and `src/data/projects.ts` to use `/images/...`.
+Update paths in `src/data/services.ts` to use `/images/...`.
 
 ## Deployment
 

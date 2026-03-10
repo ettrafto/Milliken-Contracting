@@ -5,11 +5,21 @@
   --font-display: "Playfair Display", "Libre Baskerville", Georgia, serif;
   --font-body: "Source Sans 3", "DM Sans", system-ui, sans-serif;
 
+  /* Typography scale */
+  --text-hero: clamp(2.5rem, 5vw + 2rem, 4.5rem);
+  --text-section: clamp(1.75rem, 2.5vw + 1rem, 2.5rem);
+  --text-body: 1rem;
+  --text-body-line: 1.6;
+  --text-caption: 0.75rem;
+  --text-caption-line: 1.5;
+  --tracking-tight: -0.02em;
+  --tracking-wide: 0.05em;
+
   /* Colors - earthy, premium construction */
   --color-cream: #FAF9F7;
   --color-warm-gray: #F5F3F0;
-  --color-charcoal: #2C2C2C;
-  --color-terracotta: #C47B5B;
+  --color-metallic-blue: #4A6A94;
+  --color-terracotta: #b0ae88;
   --color-sage: #8B9A7A;
   --color-text: #1A1A1A;
   --color-text-muted: #5A5A5A;
@@ -23,10 +33,25 @@
   body {
     @apply antialiased;
     font-family: var(--font-body);
+    font-size: var(--text-body);
+    line-height: var(--text-body-line);
     color: var(--color-text);
     background-color: var(--color-cream);
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
+    letter-spacing: var(--tracking-tight);
+  }
+  h1 {
+    font-size: var(--text-hero);
+    line-height: 1.1;
+  }
+  h2 {
+    font-size: var(--text-section);
+    line-height: 1.2;
+  }
+  h3 {
+    font-size: clamp(1.25rem, 1.5vw + 0.75rem, 1.5rem);
+    line-height: 1.3;
   }
 }

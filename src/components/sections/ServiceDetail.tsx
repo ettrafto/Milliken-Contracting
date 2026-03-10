@@ -9,9 +9,9 @@ export function ServiceDetail({ service }: ServiceDetailProps) {
 
   return (
     <article id={service.slug} className="scroll-mt-24">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
         <div className="order-2 lg:order-1">
-          <h2 className="font-[family-name:var(--font-display)] text-2xl md:text-3xl font-semibold text-[var(--color-text)] mb-4">
+          <h2 className="font-[family-name:var(--font-display)] text-[var(--text-section)] font-semibold text-[var(--color-text)] mb-4 tracking-[var(--tracking-tight)]">
             {service.title}
           </h2>
           <p className="text-[var(--color-text-muted)] leading-relaxed mb-6">
@@ -31,11 +31,12 @@ export function ServiceDetail({ service }: ServiceDetailProps) {
           )}
         </div>
         <div className="order-1 lg:order-2">
-          <div className="aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+          <div className="aspect-[5/4] rounded-sm overflow-hidden shadow-lg">
             <img
               src={image}
-              alt={service.title}
-              className="w-full h-full object-cover"
+              alt={service.imageAlt ?? service.title}
+              className="w-full h-full object-cover object-center"
+              loading="lazy"
             />
           </div>
         </div>

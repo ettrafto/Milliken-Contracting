@@ -10,26 +10,8 @@ export interface Service {
   description: string;
   shortDescription?: string;
   images: string[];
+  imageAlt?: string;
   scopeOfWork: string[];
-}
-
-export type ProjectCategory =
-  | 'kitchen'
-  | 'bathroom'
-  | 'addition'
-  | 'renovation'
-  | 'outdoor'
-  | 'other';
-
-export interface Project {
-  id: string;
-  name: string;
-  location?: string;
-  category: ProjectCategory;
-  description?: string;
-  images: string[];
-  beforeAfter?: { before: string; after: string };
-  featured?: boolean;
 }
 
 export interface Testimonial {

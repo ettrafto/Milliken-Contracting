@@ -1,48 +1,28 @@
-import { Link } from 'react-router-dom';
-import { navigation, contactInfo, companyInfo } from '../../data';
+import { contactInfo, companyInfo } from '../../data';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[var(--color-charcoal)] text-white">
-      <div className="max-w-7xl mx-auto px-6 md:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+    <footer className="bg-[var(--color-metallic-blue)] text-white">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 w-full gap-12 md:gap-16 lg:gap-20">
           {/* Company */}
-          <div>
-            <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold mb-4">
+          <div className="space-y-4 text-center">
+            <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold tracking-[var(--tracking-tight)]">
               {companyInfo.name}
             </h3>
-            <p className="text-white/80 text-sm leading-relaxed">
+            <p className="text-white/80 text-sm leading-relaxed max-w-sm mx-auto">
               {companyInfo.tagline}
             </p>
           </div>
 
-          {/* Navigation */}
-          <div>
-            <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold mb-4">
-              Quick Links
-            </h3>
-            <ul className="space-y-2">
-              {navigation.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    to={item.href}
-                    className="text-white/80 hover:text-white text-sm transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* Contact */}
-          <div>
-            <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold mb-4">
+          <div className="space-y-4 text-center">
+            <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold tracking-[var(--tracking-tight)]">
               Contact
             </h3>
-            <ul className="space-y-2 text-sm text-white/80">
+            <ul className="space-y-3 text-sm text-white/80">
               <li>
                 <a
                   href={`tel:${contactInfo.phone.replace(/\D/g, '')}`}
@@ -59,22 +39,24 @@ export function Footer() {
                   {contactInfo.email}
                 </a>
               </li>
-              <li>{contactInfo.address}</li>
+              {contactInfo.address && (
+                <li>{contactInfo.address}</li>
+              )}
             </ul>
           </div>
 
           {/* Service Areas */}
-          <div>
-            <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold mb-4">
+          <div className="space-y-4 text-center">
+            <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold tracking-[var(--tracking-tight)]">
               Service Areas
             </h3>
-            <p className="text-white/80 text-sm">
+            <p className="text-white/80 text-sm leading-relaxed">
               {companyInfo.serviceAreas.join(', ')}
             </p>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/20 text-center text-sm text-white/60">
+        <div className="mt-16 md:mt-20 pt-8 border-t border-white/20 text-center text-sm text-white/60">
           &copy; {currentYear} {companyInfo.name}. All rights reserved.
         </div>
       </div>

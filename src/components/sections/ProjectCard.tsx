@@ -1,44 +1,40 @@
-import type { Project } from '../../types';
+import { Link } from 'react-router-dom';
+import type { ProjectEntry } from '../../content/projects';
+import { getProjectImagePath, getProjectImageEntry, getCategoryLabel } from '../../content/projects';
 
 interface ProjectCardProps {
-  project: Project;
+  project: ProjectEntry;
 }
 
-const categoryLabels: Record<string, string> = {
-  kitchen: 'Kitchen',
-  bathroom: 'Bathroom',
-  addition: 'Addition',
-  renovation: 'Renovation',
-  outdoor: 'Outdoor',
-  other: 'Other',
-};
-
 export function ProjectCard({ project }: ProjectCardProps) {
-  const image = project.images[0] || 'https://via.placeholder.com/600x400?text=Project';
-  const categoryLabel = categoryLabels[project.category] || project.category;
+  const coverPath = getProjectImagePath(project.coverImageId);
+  const coverEntry = getProjectImageEntry(project.coverImageId);
+  const orientation = coverEntry?.orientation ?? 'portrait';
+  const aspectClass = orientation === 'landscape' ? 'aspect-[5/4]' : 'aspect-[5/4]';
 
   return (
-    <div className="group block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-      <div className="aspect-[4/3] overflow-hidden relative">
-        <img
-          src={image}
-          alt={project.name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-        <div className="absolute bottom-0 left-0 right-0 p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
-          <span className="text-xs font-medium uppercase tracking-wider">{categoryLabel}</span>
+    <article className="group bg-white rounded-sm overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5">
+      <Link to={`/projects/${project.slug}`} className="block">
+        <div className={`overflow-hidden ${aspectClass}`}>
+          <img
+            src={coverPath}
+            alt={coverEntry?.alt ?? project.title}
+            className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-300"
+            loading="lazy"
+          />
         </div>
-      </div>
-      <div className="p-4">
-        <h3 className="font-[family-name:var(--font-display)] font-semibold text-[var(--color-text)] group-hover:text-[var(--color-terracotta)] transition-colors">
-          {project.name}
-        </h3>
-        {project.location && (
-          <p className="text-sm text-[var(--color-text-muted)]">{project.location}</p>
-        )}
-      </div>
-    </div>
+        <div className="p-6 md:p-8">
+          <span className="text-xs uppercase tracking-[var(--tracking-wide)] text-[var(--color-terracotta)] font-medium">
+            {getCategoryLabel(project.category)}
+          </span>
+          <h3 className="font-[family-name:var(--font-display)] text-xl md:text-2xl font-semibold text-[var(--color-text)] mt-2 mb-2 group-hover:text-[var(--color-terracotta)] transition-colors tracking-[var(--tracking-tight)]">
+            {project.title}
+          </h3>
+          <p className="text-[var(--color-text-muted)] text-sm leading-relaxed line-clamp-2">
+            {project.description}
+          </p>
+        </div>
+      </Link>
+    </article>
   );
 }

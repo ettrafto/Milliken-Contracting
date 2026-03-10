@@ -6,13 +6,13 @@ interface HeroSimpleProps {
 
 export function HeroSimple({ title, subtitle, image }: HeroSimpleProps) {
   return (
-    <section className="relative py-20 md:py-28 overflow-hidden">
+    <section className={`relative overflow-hidden ${image ? 'min-h-[40vh] py-24 md:py-32' : 'py-24 md:py-32'}`}>
       {image && (
         <>
           <img
             src={image}
             alt=""
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-black/50" />
         </>
@@ -22,11 +22,11 @@ export function HeroSimple({ title, subtitle, image }: HeroSimpleProps) {
           image ? 'text-white' : ''
         }`}
       >
-        <h1 className="font-[family-name:var(--font-display)] text-4xl md:text-5xl lg:text-6xl font-semibold mb-4">
+        <h1 className="font-[family-name:var(--font-display)] text-[var(--text-hero)] font-medium tracking-[var(--tracking-tight)] mb-6">
           {title}
         </h1>
         {subtitle && (
-          <p className="text-lg md:text-xl max-w-2xl mx-auto opacity-90">
+          <p className="text-lg md:text-xl max-w-xl mx-auto leading-relaxed opacity-90">
             {subtitle}
           </p>
         )}

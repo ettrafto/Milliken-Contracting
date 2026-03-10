@@ -3,13 +3,17 @@ import { Section } from '../components/ui/Section';
 import { SectionHeader } from '../components/ui/SectionHeader';
 import { Button } from '../components/ui/Button';
 import { companyInfo } from '../data';
+import { siteContent } from '../content/siteContent';
+import { getAboutHeroImage } from '../content/homeContent';
 
 export function AboutPage() {
+  const heroImage = getAboutHeroImage();
   return (
     <>
       <HeroSimple
         title="About Us"
-        subtitle="Building trust through quality craftsmanship since 1999."
+        subtitle={siteContent.copy.aboutHeroSubtitle}
+        image={heroImage.src || undefined}
       />
       <Section background="cream">
         <div className="max-w-3xl mx-auto">
@@ -24,15 +28,15 @@ export function AboutPage() {
       <Section background="warm-gray">
         <SectionHeader
           title="What We Specialize In"
-          subtitle="From kitchens to outdoor living, we bring expertise to every project."
+          subtitle={siteContent.copy.aboutSpecializeSubtitle}
         />
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+        <ul className="flex flex-col items-center gap-6 max-w-2xl mx-auto">
           {companyInfo.specializations.map((item) => (
             <li
               key={item}
-              className="flex items-center gap-3 text-[var(--color-text)]"
+              className="flex items-center gap-4 text-[var(--color-text)] text-xl md:text-2xl font-medium"
             >
-              <span className="text-[var(--color-terracotta)]">✓</span>
+              <span className="text-2xl md:text-3xl text-[var(--color-terracotta)]">✓</span>
               {item}
             </li>
           ))}
@@ -65,7 +69,7 @@ export function AboutPage() {
       <Section background="warm-gray">
         <SectionHeader
           title="Our Values"
-          subtitle="What guides every project we undertake."
+          subtitle={siteContent.copy.aboutValuesSubtitle}
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {companyInfo.values?.map((value) => (
@@ -81,8 +85,16 @@ export function AboutPage() {
       <Section background="cream">
         <SectionHeader
           title="Service Areas"
-          subtitle="Proudly serving our community and surrounding regions."
+          subtitle={siteContent.copy.aboutServiceAreasSubtitle}
         />
+        <div className="mb-8">
+          <img
+            src="/images/aquidneck%20island.png"
+            alt="Aquidneck Island"
+            className="w-1/4 max-w-md mx-auto rounded-sm "
+            loading="lazy"
+          />
+        </div>
         <p className="text-center text-[var(--color-text-muted)] mb-8">
           {companyInfo.serviceAreas.join(' • ')}
         </p>
