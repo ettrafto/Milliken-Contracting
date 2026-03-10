@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+  /* Typography */
+  --font-display: "Playfair Display", "Libre Baskerville", Georgia, serif;
+  --font-body: "Source Sans 3", "DM Sans", system-ui, sans-serif;
+
+  /* Colors - earthy, premium construction */
+  --color-cream: #FAF9F7;
+  --color-warm-gray: #F5F3F0;
+  --color-charcoal: #2C2C2C;
+  --color-terracotta: #C47B5B;
+  --color-sage: #8B9A7A;
+  --color-text: #1A1A1A;
+  --color-text-muted: #5A5A5A;
+  --color-border: #E5E2DD;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply antialiased;
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-cream);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
