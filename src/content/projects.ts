@@ -4,7 +4,7 @@
  * References image manifest IDs for consistency.
  */
 
-import { getImageById, getImagePath } from './imageManifest';
+import { getImageById, getImagePath, imageManifest } from './imageManifest';
 import type { ImageManifestEntry } from './imageManifest';
 
 export type ProjectCategory = 'restoration' | 'renovation' | 'addition' | 'custom-woodwork';
@@ -57,7 +57,7 @@ const PROJECTS_DATA: Omit<ProjectEntry, 'slug'>[] = [
     beforeAfterPairs: [
       {
         beforeImageId: '1-pre',
-        afterImageId: '1',
+        afterImageId: '1-1',
         label: 'Exterior restoration',
       },
     ],
@@ -71,12 +71,12 @@ const PROJECTS_DATA: Omit<ProjectEntry, 'slug'>[] = [
     description:
       'Complete porch renovation with new decking, railings, and structural updates. The transformation preserved the home\'s character while modernizing the entryway.',
     featured: true,
-    coverImageId: '12',
-    galleryImageIds: ['12-pre'],
+    coverImageId: '12-2',
+    galleryImageIds: ['12-before', '12'],
     beforeAfterPairs: [
       {
-        beforeImageId: '12-before',
-        afterImageId: '12',
+        beforeImageId: '12-pre',
+        afterImageId: '12-2',
         label: 'Porch renovation',
       },
     ],
@@ -129,4 +129,24 @@ export function getProjectImagePath(imageId: string): string {
 
 export function getProjectImageEntry(imageId: string): ImageManifestEntry | undefined {
   return getImageById(imageId);
+}
+
+/** Image IDs used in any project (cover, gallery, before/after) */
+function getProjectImageIds(): Set<string> {
+  const ids = new Set<string>();
+  for (const p of projectsCache) {
+    ids.add(p.coverImageId);
+    p.galleryImageIds.forEach((id) => ids.add(id));
+    p.beforeAfterPairs.forEach((pair) => {
+      ids.add(pair.beforeImageId);
+      ids.add(pair.afterImageId);
+    });
+  }
+  return ids;
+}
+
+/** Orphan images: in manifest but not used in any project */
+export function getOrphanImages(): ImageManifestEntry[] {
+  const usedIds = getProjectImageIds();
+  return imageManifest.filter((entry) => !usedIds.has(entry.id));
 }

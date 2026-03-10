@@ -22,10 +22,10 @@ const SERVICES_IMAGE_IDS = ['3', '9', '8.1', '14'] as const;
 // About preview: craftsmanship-focused — 1.1 (custom exterior staircase)
 const ABOUT_IMAGE_ID = '1-1';
 
-// Page heroes: About (4 = herringbone interior), Services (1 = Victorian), Contact (7 = interior), Projects (1 = Victorian)
+// Page heroes: About (4 = herringbone interior), Services (18-1), Contact (19), Projects (1 = Victorian)
 const ABOUT_HERO_IMAGE_ID = '4';
-const SERVICES_HERO_IMAGE_ID = '1';
-const CONTACT_HERO_IMAGE_ID = '7';
+const SERVICES_HERO_IMAGE_ID = '18-1';
+const CONTACT_HERO_IMAGE_ID = '19';
 const PROJECTS_HERO_IMAGE_ID = '1';
 
 export function getHeroImage(): { src: string; alt: string } {

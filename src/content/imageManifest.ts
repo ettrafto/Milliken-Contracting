@@ -471,6 +471,23 @@ export const imageManifest: ImageManifestEntry[] = [
     notes: 'Tarp, ladder, tools. Work-in-progress.',
     cropRecommendation: null,
   },
+  {
+    id: '19',
+    filename: '19.jpg',
+    alt: 'Contact page banner',
+    category: 'hero',
+    tags: ['contact', 'hero'],
+    orientation: 'landscape',
+    featured: false,
+    heroCandidate: false,
+    recommendedPlacement: ['contact'],
+    priority: 4,
+    serviceAssociations: [],
+    projectGroup: null,
+    beforeAfter: null,
+    notes: 'Contact page hero banner.',
+    cropRecommendation: null,
+  },
 ];
 
 // --- Helpers ---

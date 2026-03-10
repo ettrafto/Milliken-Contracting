@@ -14,6 +14,7 @@ export function ServicesPage() {
         title="Our Services"
         subtitle={siteContent.copy.servicesPageHeroSubtitle}
         image={heroImage.src || undefined}
+        imagePosition="center 90%"
       />
       <Section background="cream">
         <div className="space-y-32">

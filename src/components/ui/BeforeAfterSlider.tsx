@@ -30,16 +30,15 @@ export function BeforeAfterSlider({
           className="absolute inset-0 h-full w-full object-cover object-center"
           loading="lazy"
         />
-        {/* Before image (clipped to left portion) */}
+        {/* Before image (clipped via clip-path to preserve aspect ratio) */}
         <div
-          className="absolute left-0 top-0 h-full overflow-hidden"
-          style={{ width: `${position}%` }}
+          className="absolute inset-0"
+          style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
         >
           <img
             src={beforeImage}
             alt={beforeAlt}
-            className="absolute left-0 top-0 h-full object-cover object-left-top"
-            style={{ width: `${position > 0 ? 10000 / position : 100}%` }}
+            className="absolute inset-0 h-full w-full object-cover object-center"
             loading="lazy"
           />
         </div>
@@ -53,8 +52,8 @@ export function BeforeAfterSlider({
         {/* Range input (invisible, for interaction) */}
         <input
           type="range"
-          min={0}
-          max={100}
+          min={10}
+          max={90}
           value={position}
           onChange={(e) => setPosition(Number(e.target.value))}
           className="absolute inset-0 z-20 w-full cursor-ew-resize opacity-0"

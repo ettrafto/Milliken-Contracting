@@ -49,6 +49,8 @@ export const siteContent = {
     projectsIntroHeadline: 'Restoration Work That Respects Character',
     projectsIntroDescription:
       'Our work focuses on thoughtful restorations, renovations, and additions throughout Newport and Aquidneck Island. Each project reflects careful craftsmanship and respect for the character of older homes.',
+    projectsGalleryTitle: 'Gallery',
+    projectsGallerySubtitle: 'Additional images from our restoration and renovation work.',
   },
 
   primaryServiceDescriptions: {
