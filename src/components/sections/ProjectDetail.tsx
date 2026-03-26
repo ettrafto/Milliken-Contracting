@@ -1,8 +1,9 @@
 import type { ProjectEntry } from '../../content/projects';
 import {
-  getProjectImagePath,
-  getProjectImageEntry,
+  projectAssetUrl,
+  altForProjectImage,
   getCategoryLabel,
+  getManifestEntryByFilename,
 } from '../../content/projects';
 import { BeforeAfterSlider } from '../ui/BeforeAfterSlider';
 
@@ -11,7 +12,9 @@ interface ProjectDetailProps {
 }
 
 export function ProjectDetail({ project }: ProjectDetailProps) {
-  const coverEntry = getProjectImageEntry(project.coverImageId);
+  const coverPath = project.coverFilename
+    ? projectAssetUrl(project.folder, project.coverFilename)
+    : '';
 
   return (
     <article className="space-y-16 md:space-y-24">
@@ -32,14 +35,16 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
       </div>
 
       {/* Cover image */}
-      <div className="aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-sm">
-        <img
-          src={getProjectImagePath(project.coverImageId)}
-          alt={coverEntry?.alt ?? project.title}
-          className="w-full h-full object-cover object-center"
-          loading="eager"
-        />
-      </div>
+      {coverPath && (
+        <div className="aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-sm bg-[var(--color-border)]">
+          <img
+            src={coverPath}
+            alt={altForProjectImage(project.coverFilename)}
+            className="w-full h-full object-cover object-center"
+            loading="eager"
+          />
+        </div>
+      )}
 
       {/* Before/After sliders */}
       {project.beforeAfterPairs.length > 0 && (
@@ -48,46 +53,40 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
             Before & After
           </h2>
           <div className="space-y-12">
-            {project.beforeAfterPairs.map((pair, i) => {
-              const beforeEntry = getProjectImageEntry(pair.beforeImageId);
-              const afterEntry = getProjectImageEntry(pair.afterImageId);
-              if (!beforeEntry || !afterEntry) return null;
-              return (
-                <BeforeAfterSlider
-                  key={i}
-                  beforeImage={getProjectImagePath(pair.beforeImageId)}
-                  afterImage={getProjectImagePath(pair.afterImageId)}
-                  beforeAlt={beforeEntry.alt}
-                  afterAlt={afterEntry.alt}
-                  label={pair.label}
-                />
-              );
-            })}
+            {project.beforeAfterPairs.map((pair, i) => (
+              <BeforeAfterSlider
+                key={i}
+                beforeImage={projectAssetUrl(project.folder, pair.beforeFilename)}
+                afterImage={projectAssetUrl(project.folder, pair.afterFilename)}
+                beforeAlt={altForProjectImage(pair.beforeFilename)}
+                afterAlt={altForProjectImage(pair.afterFilename)}
+                label={pair.label}
+              />
+            ))}
           </div>
         </div>
       )}
 
       {/* Gallery images */}
-      {project.galleryImageIds.length > 0 && (
+      {project.galleryFilenames.length > 0 && (
         <div className="space-y-8">
           <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold text-[var(--color-text)]">
             Gallery
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {project.galleryImageIds.map((imageId) => {
-              const entry = getProjectImageEntry(imageId);
-              if (!entry) return null;
-              const orientation = entry.orientation;
+            {project.galleryFilenames.map((filename) => {
+              const entry = getManifestEntryByFilename(filename);
+              const orientation = entry?.orientation ?? 'portrait';
               const aspectClass =
                 orientation === 'landscape' ? 'aspect-[16/9]' : 'aspect-[4/5]';
               return (
                 <div
-                  key={imageId}
+                  key={filename}
                   className={`overflow-hidden rounded-sm ${aspectClass}`}
                 >
                   <img
-                    src={getProjectImagePath(imageId)}
-                    alt={entry.alt}
+                    src={projectAssetUrl(project.folder, filename)}
+                    alt={altForProjectImage(filename)}
                     className="w-full h-full object-cover object-center"
                     loading="lazy"
                   />

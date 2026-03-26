@@ -11,7 +11,7 @@ export function AboutPage() {
   return (
     <>
       <HeroSimple
-        title="About Us"
+        title={siteContent.copy.aboutHeroTitle}
         subtitle={siteContent.copy.aboutHeroSubtitle}
         image={heroImage.src || undefined}
       />
@@ -89,7 +89,7 @@ export function AboutPage() {
         />
         <div className="mb-8">
           <img
-            src="/images/aquidneck%20island.png"
+            src="/images/other/aquidneck%20island.png"
             alt="Aquidneck Island"
             className="w-1/4 max-w-md mx-auto rounded-sm "
             loading="lazy"

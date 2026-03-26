@@ -11,7 +11,7 @@ export function ServicesPage() {
   return (
     <>
       <HeroSimple
-        title="Our Services"
+        title={siteContent.copy.servicesPageHeroTitle}
         subtitle={siteContent.copy.servicesPageHeroSubtitle}
         image={heroImage.src || undefined}
         imagePosition="center 90%"

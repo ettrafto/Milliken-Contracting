@@ -33,7 +33,7 @@ export function ContactPage() {
                 {companyInfo.serviceAreas.join(', ')}
               </p>
               <img
-                src="/images/aquidneck%20island.png"
+                src="/images/other/aquidneck%20island.png"
                 alt="Aquidneck Island"
                 className="w-3/8 max-w-md rounded-sm "
                 loading="lazy"

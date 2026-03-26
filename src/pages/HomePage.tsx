@@ -22,6 +22,7 @@ export function HomePage() {
       <Hero
         image={hero.src}
         alt={hero.alt}
+        imageObjectPosition={hero.imageObjectPosition}
         tagline={siteContent.copy.heroHeadline}
         subtitle={siteContent.copy.heroSubtitle}
         ctaText="Request a Quote"

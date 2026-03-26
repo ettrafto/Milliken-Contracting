@@ -37,6 +37,5 @@ export interface CompanyInfo {
 export interface ContactInfo {
   phone: string;
   email: string;
-  address: string;
-  mapEmbedUrl?: string;
+  address?: string;
 }

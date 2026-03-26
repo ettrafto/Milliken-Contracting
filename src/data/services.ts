@@ -2,18 +2,19 @@ import type { Service } from '../types';
 import { getServiceImagePath, getServiceImageAlt } from '../content/services';
 import { siteContent } from '../content/siteContent';
 
+/** Order: Additions → Renovations → Restoration Work (content-v2) */
 const primaryServicesData: Omit<Service, 'images'>[] = [
   {
     id: '1',
-    title: 'Restorations',
-    slug: 'restorations',
-    description: siteContent.primaryServiceDescriptions.restorations,
-    shortDescription: 'Restoration of historic and period homes.',
+    title: 'Additions',
+    slug: 'additions',
+    description: siteContent.primaryServiceDescriptions.additions,
+    shortDescription: 'Seamless additions that feel like part of the original home.',
     scopeOfWork: [
-      'Exterior restoration',
-      'Period-appropriate interior work',
-      'Character-defining details',
-      'Structural updates for older construction',
+      'Foundation work',
+      'Structural framing',
+      'Decks & porches',
+      'Integration with existing architecture',
     ],
   },
   {
@@ -21,7 +22,7 @@ const primaryServicesData: Omit<Service, 'images'>[] = [
     title: 'Renovations',
     slug: 'renovations',
     description: siteContent.primaryServiceDescriptions.renovations,
-    shortDescription: 'Thoughtful renovations for older homes.',
+    shortDescription: 'Kitchens, baths, and interior spaces built with care.',
     scopeOfWork: [
       'Kitchens & bathrooms in historic homes',
       'Interior finishes that match existing',
@@ -31,15 +32,15 @@ const primaryServicesData: Omit<Service, 'images'>[] = [
   },
   {
     id: '3',
-    title: 'Additions',
-    slug: 'additions',
-    description: siteContent.primaryServiceDescriptions.additions,
-    shortDescription: 'Additions that respect the original structure.',
+    title: 'Restoration Work',
+    slug: 'restorations',
+    description: siteContent.primaryServiceDescriptions.restorations,
+    shortDescription: 'Preserving and repairing older homes the right way.',
     scopeOfWork: [
-      'Foundation work',
-      'Structural framing',
-      'Decks & porches',
-      'Integration with existing architecture',
+      'Exterior restoration',
+      'Period-appropriate interior work',
+      'Character-defining details',
+      'Structural updates for older construction',
     ],
   },
 ];

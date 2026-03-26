@@ -23,8 +23,8 @@ export const business = {
     phone: '401-207-8109',
     phoneFormatted: '(401) 207-8109',
     email: 'jorgo197755@gmail.com',
-    address: null, // _missing: physical address if any
-    mapEmbedUrl: null, // _missing: Google Maps embed
+    //address: null, // _missing: physical address if any
+    //mapEmbedUrl: null, // _missing: Google Maps embed
   },
 
   serviceArea: {

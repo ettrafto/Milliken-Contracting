@@ -1,0 +1,153 @@
+{
+  "projects": [
+    {
+      "folder": "porch-renovation",
+      "description": {
+        "title": "Porch Renovation",
+        "type": "Renovation",
+        "location": "Aquidneck Island",
+        "description": "Complete porch renovation with new decking, railings, and structural updates.",
+        "featured": true,
+        "coverImage": "",
+        "gallery": [],
+        "beforeAfter": [],
+        "order": 1
+      },
+      "folderImages": []
+    },
+    {
+      "folder": "circle-window",
+      "description": {
+        "title": "Circle Window",
+        "type": "Restoration",
+        "location": "Newport, RI",
+        "description": "Custom circular window integration with curved wall detailing.",
+        "featured": true,
+        "coverImage": "",
+        "gallery": [],
+        "beforeAfter": [],
+        "order": 2
+      },
+      "folderImages": []
+    },
+    {
+      "folder": "custom-staircase",
+      "description": {
+        "title": "Custom Staircase",
+        "type": "Renovation",
+        "location": "Aquidneck Island",
+        "description": "Custom staircase with period-appropriate millwork.",
+        "featured": true,
+        "coverImage": "",
+        "gallery": [],
+        "beforeAfter": [],
+        "order": 5
+      },
+      "folderImages": []
+    },
+    {
+      "folder": "living-room-update",
+      "description": {
+        "title": "Living Room Update",
+        "type": "Renovation",
+        "location": "Newport, RI",
+        "description": "Thoughtful living room renovation for an older home.",
+        "featured": false,
+        "coverImage": "",
+        "gallery": [],
+        "beforeAfter": [],
+        "order": 6
+      },
+      "folderImages": []
+    },
+    {
+      "folder": "porch-overhang",
+      "description": {
+        "title": "Porch Overhang",
+        "type": "Addition",
+        "location": "Aquidneck Island",
+        "description": "New porch overhang integrated with the existing structure.",
+        "featured": false,
+        "coverImage": "",
+        "gallery": [],
+        "beforeAfter": [],
+        "order": 7
+      },
+      "folderImages": []
+    },
+    {
+      "folder": "guilded-age-porch",
+      "description": {
+        "title": "Gilded Age Porch",
+        "type": "Restoration",
+        "location": "Newport, RI",
+        "description": "Historic porch restoration honoring Gilded Age details.",
+        "featured": false,
+        "coverImage": "",
+        "gallery": [],
+        "beforeAfter": [],
+        "order": 8
+      },
+      "folderImages": []
+    },
+    {
+      "folder": "triple-stack-barrel",
+      "description": {
+        "title": "Triple Stack Barrel",
+        "type": "Restoration",
+        "location": "Newport, RI",
+        "description": "Triple-stack barrel detail restoration.",
+        "featured": false,
+        "coverImage": "",
+        "gallery": [],
+        "beforeAfter": [],
+        "order": 9
+      },
+      "folderImages": []
+    },
+    {
+      "folder": "column-repair",
+      "description": {
+        "title": "Column Repair",
+        "type": "Restoration",
+        "location": "Newport, RI",
+        "description": "Ornate porch column repair and restoration.",
+        "featured": false,
+        "coverImage": "",
+        "gallery": [],
+        "beforeAfter": [],
+        "order": 10
+      },
+      "folderImages": []
+    }
+  ],
+  "looseImages": [
+    "1-pre.jpg",
+    "1.1.jpg",
+    "1.jpg",
+    "10.jpg",
+    "11-pre.jpg",
+    "11.jpg",
+    "12-pre.jpg",
+    "12..jpg",
+    "12.2.jpg",
+    "12.jpg",
+    "13.jpg",
+    "14.jpg",
+    "15-pre.jpg",
+    "15.jpg",
+    "18.1.jpg",
+    "18.jpg",
+    "19.jpg",
+    "2.jpg",
+    "3.jpg",
+    "4.jpg",
+    "5.1.jpg",
+    "5.jpg",
+    "6.jpg",
+    "7.jpg",
+    "8.1.jpg",
+    "8.jpg",
+    "9.jpg"
+  ]
+}

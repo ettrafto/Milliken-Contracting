@@ -1,9 +1,12 @@
 import { useEffect, useCallback } from 'react';
-import type { ImageManifestEntry } from '../../content/imageManifest';
-import { getImagePath } from '../../content/imageManifest';
+
+export interface GallerySlide {
+  src: string;
+  alt: string;
+}
 
 interface ImageGalleryModalProps {
-  images: ImageManifestEntry[];
+  images: GallerySlide[];
   currentIndex: number;
   onClose: () => void;
   onNavigate: (index: number) => void;
@@ -15,7 +18,7 @@ export function ImageGalleryModal({
   onClose,
   onNavigate,
 }: ImageGalleryModalProps) {
-  const entry = images[currentIndex];
+  const slide = images[currentIndex];
   const hasPrev = currentIndex > 0;
   const hasNext = currentIndex < images.length - 1;
 
@@ -37,7 +40,7 @@ export function ImageGalleryModal({
     };
   }, [handleKeyDown]);
 
-  if (!entry) return null;
+  if (!slide) return null;
 
   return (
     <div
@@ -47,7 +50,6 @@ export function ImageGalleryModal({
       aria-modal="true"
       aria-label="Image gallery"
     >
-      {/* Close button */}
       <button
         onClick={onClose}
         className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/50"
@@ -58,7 +60,6 @@ export function ImageGalleryModal({
         </svg>
       </button>
 
-      {/* Prev arrow */}
       {hasPrev && (
         <button
           onClick={(e) => {
@@ -74,7 +75,6 @@ export function ImageGalleryModal({
         </button>
       )}
 
-      {/* Next arrow */}
       {hasNext && (
         <button
           onClick={(e) => {
@@ -90,20 +90,18 @@ export function ImageGalleryModal({
         </button>
       )}
 
-      {/* Image container - stop propagation so clicking image doesn't close */}
       <div
         className="relative max-h-[90vh] max-w-[90vw]"
         onClick={(e) => e.stopPropagation()}
       >
         <img
-          src={getImagePath(entry)}
-          alt={entry.alt}
+          src={slide.src}
+          alt={slide.alt}
           className="max-h-[90vh] w-auto max-w-full rounded-lg object-contain shadow-2xl"
         />
-        <p className="mt-3 text-center text-sm text-white/80">{entry.alt}</p>
+        <p className="mt-3 text-center text-sm text-white/80">{slide.alt}</p>
       </div>
 
-      {/* Counter */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-sm text-white/70">
         {currentIndex + 1} / {images.length}
       </div>

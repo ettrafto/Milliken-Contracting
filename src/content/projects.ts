@@ -1,21 +1,24 @@
 /**
- * Milliken Contracting — Projects Content
- * Gallery of restoration, renovation, and addition work.
- * References image manifest IDs for consistency.
+ * Milliken Contracting — Projects from public/images/projects/{folder}/description.json
+ * Loose images at public/images/projects/*.jpg appear in the gallery section.
+ * Run: npm run generate-projects-index (also runs predev/prebuild)
  */
 
-import { getImageById, getImagePath, imageManifest } from './imageManifest';
+import projectsIndexData from './generated/projectsIndex.json';
+import { imageManifest } from './imageManifest';
 import type { ImageManifestEntry } from './imageManifest';
 
 export type ProjectCategory = 'restoration' | 'renovation' | 'addition' | 'custom-woodwork';
 
 export interface BeforeAfterPair {
-  beforeImageId: string;
-  afterImageId: string;
+  beforeFilename: string;
+  afterFilename: string;
   label?: string;
 }
 
 export interface ProjectEntry {
+  /** Folder name under /images/projects */
+  folder: string;
   id: string;
   slug: string;
   title: string;
@@ -23,8 +26,8 @@ export interface ProjectEntry {
   category: ProjectCategory;
   description: string;
   featured: boolean;
-  coverImageId: string;
-  galleryImageIds: string[];
+  coverFilename: string;
+  galleryFilenames: string[];
   beforeAfterPairs: BeforeAfterPair[];
   tags?: string[];
 }
@@ -36,82 +39,133 @@ const CATEGORY_LABELS: Record<ProjectCategory, string> = {
   'custom-woodwork': 'Custom Woodwork',
 };
 
-function toSlug(title: string): string {
-  return title
+const PROJECTS_BASE = '/images/projects';
+
+type RawDesc = {
+  title?: string;
+  slug?: string;
+  type?: string;
+  location?: string;
+  description?: string;
+  featured?: boolean;
+  order?: number;
+  coverImage?: string;
+  'main-image'?: string;
+  gallery?: string[];
+  beforeAfter?: Array<{ before?: string; after?: string; label?: string }>;
+  tags?: string[];
+};
+
+type GeneratedProject = {
+  folder: string;
+  description: RawDesc;
+  folderImages: string[];
+};
+
+function isRemoteUrl(s: string): boolean {
+  return /^https?:\/\//i.test(s.trim());
+}
+
+function basename(pathOrFile: string): string {
+  const parts = pathOrFile.replace(/\\/g, '/').split('/');
+  return parts[parts.length - 1] ?? pathOrFile;
+}
+
+function slugify(input: string): string {
+  return input
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '');
 }
 
-const PROJECTS_DATA: Omit<ProjectEntry, 'slug'>[] = [
-  {
-    id: 'victorian-restoration',
-    title: 'Historic Newport Home Restoration',
-    location: 'Newport, RI',
-    category: 'restoration',
-    description:
-      'Careful restoration work preserving original character while improving structural integrity. Exterior woodwork, period-appropriate details, and careful attention to historic materials.',
-    featured: true,
-    coverImageId: '1',
-    galleryImageIds: ['1-1', '1-pre'],
-    beforeAfterPairs: [
-      {
-        beforeImageId: '1-pre',
-        afterImageId: '1-1',
-        label: 'Exterior restoration',
-      },
-    ],
-    tags: ['victorian', 'historic', 'exterior'],
-  },
-  {
-    id: 'front-porch-renovation',
-    title: 'Front Porch Renovation',
-    location: 'Aquidneck Island',
-    category: 'renovation',
-    description:
-      'Complete porch renovation with new decking, railings, and structural updates. The transformation preserved the home\'s character while modernizing the entryway.',
-    featured: true,
-    coverImageId: '12-2',
-    galleryImageIds: ['12-before', '12'],
-    beforeAfterPairs: [
-      {
-        beforeImageId: '12-pre',
-        afterImageId: '12-2',
-        label: 'Porch renovation',
-      },
-    ],
-    tags: ['porch', 'exterior', 'decking'],
-  },
-  {
-    id: 'modern-addition',
-    title: 'Modern Addition',
-    location: 'Newport, RI',
-    category: 'addition',
-    description:
-      'New addition with modern staircase, cable railing, and shingle siding. The addition integrates with the existing structure while bringing contemporary craftsmanship to the project.',
-    featured: false,
-    coverImageId: '2',
-    galleryImageIds: ['3', '8'],
-    beforeAfterPairs: [],
-    tags: ['addition', 'staircase', 'modern'],
-  },
-];
-
-function buildProjects(): ProjectEntry[] {
-  return PROJECTS_DATA.map((p) => ({
-    ...p,
-    slug: toSlug(p.title),
-  }));
+function mapTypeToCategory(t: string | undefined): ProjectCategory {
+  const lower = (t ?? '').toLowerCase();
+  if (lower.includes('restoration')) return 'restoration';
+  if (lower.includes('renovation')) return 'renovation';
+  if (lower.includes('addition')) return 'addition';
+  if (lower.includes('custom')) return 'custom-woodwork';
+  return 'restoration';
 }
 
-const projectsCache = buildProjects();
+function pickCover(desc: RawDesc, folderImages: string[]): string {
+  const fromJson = (desc.coverImage ?? '').trim();
+  if (fromJson && !isRemoteUrl(fromJson)) {
+    const name = basename(fromJson);
+    if (!folderImages.length || folderImages.includes(name)) return name;
+  }
+  const legacy = (desc['main-image'] ?? '').trim();
+  if (legacy && !isRemoteUrl(legacy)) {
+    const name = basename(legacy);
+    if (!folderImages.length || folderImages.includes(name)) return name;
+  }
+  return folderImages[0] ?? '';
+}
+
+function normalizeProject(raw: GeneratedProject): ProjectEntry {
+  const desc = raw.description;
+  const folder = raw.folder;
+  const folderImages = raw.folderImages;
+
+  const cover = pickCover(desc, folderImages);
+  const used = new Set<string>();
+  if (cover) used.add(cover);
+
+  const beforeAfterPairs: BeforeAfterPair[] = [];
+  for (const p of desc.beforeAfter ?? []) {
+    if (!p?.before || !p?.after) continue;
+    if (isRemoteUrl(p.before) || isRemoteUrl(p.after)) continue;
+    const b = basename(p.before);
+    const a = basename(p.after);
+    if (
+      folderImages.length &&
+      (!folderImages.includes(b) || !folderImages.includes(a))
+    ) {
+      continue;
+    }
+    beforeAfterPairs.push({ beforeFilename: b, afterFilename: a, label: p.label });
+    used.add(b);
+    used.add(a);
+  }
+
+  let galleryFilenames: string[];
+  const explicitGallery = desc.gallery?.filter(Boolean) ?? [];
+  if (explicitGallery.length) {
+    galleryFilenames = explicitGallery
+      .map((g) => basename(g))
+      .filter((g) => !isRemoteUrl(g))
+      .filter((g) => folderImages.length === 0 || folderImages.includes(g));
+  } else {
+    galleryFilenames = folderImages.filter((f) => !used.has(f));
+  }
+
+  const slug = desc.slug?.trim() ? slugify(desc.slug) : folder;
+
+  return {
+    folder,
+    id: folder,
+    slug,
+    title: desc.title ?? folder,
+    location: desc.location,
+    category: mapTypeToCategory(desc.type),
+    description: desc.description ?? '',
+    featured: Boolean(desc.featured),
+    coverFilename: cover,
+    galleryFilenames,
+    beforeAfterPairs,
+    tags: desc.tags,
+  };
+}
+
+const index = projectsIndexData as { projects: GeneratedProject[]; looseImages: string[] };
+
+const projectsCache: ProjectEntry[] = index.projects.map(normalizeProject);
 
 export function getProjects(): ProjectEntry[] {
   return projectsCache;
 }
 
 export function getProjectBySlug(slug: string): ProjectEntry | undefined {
-  return projectsCache.find((p) => p.slug === slug);
+  return projectsCache.find((p) => p.slug === slug || p.folder === slug);
 }
 
 export function getFeaturedProjects(): ProjectEntry[] {
@@ -122,31 +176,42 @@ export function getCategoryLabel(category: ProjectCategory): string {
   return CATEGORY_LABELS[category] ?? category;
 }
 
-export function getProjectImagePath(imageId: string): string {
-  const entry = getImageById(imageId);
-  return entry ? getImagePath(entry) : '';
+/** URL for an image inside a project folder */
+export function projectAssetUrl(folder: string, filename: string): string {
+  if (!filename) return '';
+  return `${PROJECTS_BASE}/${encodeURIComponent(folder)}/${encodeURIComponent(filename)}`;
 }
 
-export function getProjectImageEntry(imageId: string): ImageManifestEntry | undefined {
-  return getImageById(imageId);
+/** Loose image at /images/projects/{filename} (root of projects folder) */
+export function looseProjectImageUrl(filename: string): string {
+  return `${PROJECTS_BASE}/${encodeURIComponent(filename)}`;
 }
 
-/** Image IDs used in any project (cover, gallery, before/after) */
-function getProjectImageIds(): Set<string> {
-  const ids = new Set<string>();
-  for (const p of projectsCache) {
-    ids.add(p.coverImageId);
-    p.galleryImageIds.forEach((id) => ids.add(id));
-    p.beforeAfterPairs.forEach((pair) => {
-      ids.add(pair.beforeImageId);
-      ids.add(pair.afterImageId);
-    });
-  }
-  return ids;
+function humanizeFilename(filename: string): string {
+  return basename(filename)
+    .replace(/\.[^.]+$/, '')
+    .replace(/[-_.]+/g, ' ')
+    .trim();
 }
 
-/** Orphan images: in manifest but not used in any project */
-export function getOrphanImages(): ImageManifestEntry[] {
-  const usedIds = getProjectImageIds();
-  return imageManifest.filter((entry) => !usedIds.has(entry.id));
+/** Alt text: manifest match by filename, else humanized basename */
+export function altForProjectImage(filename: string): string {
+  const entry = imageManifest.find((e) => e.filename === filename) as ImageManifestEntry | undefined;
+  return entry?.alt ?? humanizeFilename(filename);
+}
+
+export function getManifestEntryByFilename(filename: string): ImageManifestEntry | undefined {
+  return imageManifest.find((e) => e.filename === filename);
+}
+
+const LOOSE_GALLERY_EXCLUDE = new Set(['projects-header.png']);
+
+/** Gallery section: images at projects root not inside a project folder */
+export function getLooseProjectGalleryImages(): { src: string; alt: string }[] {
+  return index.looseImages
+    .filter((filename) => !LOOSE_GALLERY_EXCLUDE.has(filename))
+    .map((filename) => ({
+      src: looseProjectImageUrl(filename),
+      alt: altForProjectImage(filename),
+    }));
 }

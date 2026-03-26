@@ -5,11 +5,11 @@
 
 import { getImageById, getImagePath, type ImageManifestEntry } from './imageManifest';
 
-// Service slug -> best-fit image id (from audit)
+// Service slug -> dedicated assets in public/images/services/
 const SERVICE_IMAGE_MAP: Record<string, string> = {
-  restorations: '1',   // Victorian restoration
-  renovations: '7',    // Interior living space
-  additions: '2',     // Modern staircase addition
+  restorations: 'service-restorations',
+  renovations: 'service-renovations',
+  additions: 'service-additions',
 };
 
 export function getServiceImage(slug: string): ImageManifestEntry | undefined {

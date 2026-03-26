@@ -1,65 +1,84 @@
 /**
  * Milliken Contracting — Site Content
- * Restoration craftsman specializing in historic homes in Newport, Rhode Island.
- * Focus: Restorations, Renovations, Additions — with Custom Woodwork as supporting specialty.
+ * Craftsman positioning: additions, renovations, kitchens, baths, and older-home restoration.
+ * Aligned with docs/content-v2.md.
  */
 
 export const siteContent = {
   company: {
     name: 'Milliken Contracting',
-    tagline: 'Restoration craftsmanship for Newport\'s historic homes.',
+    tagline: 'Preserving the character of old homes with modern craftsmanship.',
     yearsInBusiness: 30,
     description:
-      'Milliken Contracting brings over 30 years of experience to Newport and Aquidneck Island. We specialize in restoration, renovation, and addition work for historic and older homes—preserving character, improving longevity, and delivering craftsmanship built to last.',
+      'With over 30 years of experience, Milliken Contracting approaches every project as a craftsman first. From kitchens and bathrooms to full additions and restoration work, the focus is always the same—build it properly, respect the structure, and make it last. Working across Newport and Aquidneck Island, we bring modern building techniques to homes with history—without losing what makes them special.',
     story:
-      'For over three decades, Jorgen Milliken has focused on what older homes need: careful restoration, thoughtful renovation, and additions that respect the original structure. Newport and Aquidneck Island are full of historic homes that deserve work done properly—not rushed, not generic. We take pride in understanding older construction, matching materials, and improving homes for the long term. Our clients care about craftsmanship and longevity. So do we.',
-    specializations: ['Restorations', 'Renovations', 'Additions', 'Custom woodwork'],
+      "For over three decades, Jorgen Milliken has worked as a craftsman focused on doing things the right way—whether that's a kitchen renovation, a home addition, or restoring parts of an older home. Every house has its own character, especially in Newport and across Aquidneck Island. The goal isn't to overwrite that—it's to understand it, work with it, and improve it without cutting corners. Some projects call for restoration. Others call for renovation or new construction. The approach stays the same: careful work, the right materials, and attention to detail that holds up over time.",
+    specializations: [
+      'Additions',
+      'Kitchens & Bathrooms',
+      'Renovations',
+      'Restoration Work',
+      'Custom Woodwork',
+    ],
     values: [
       'Quality craftsmanship',
       'Longevity',
       'Work done properly',
-      'Respect for historic character',
+      "Respect for the home's character",
       'Integrity',
       'Attention to detail',
       'Honest communication',
       'Preserving heritage',
     ],
     serviceAreas: ['Newport', 'Aquidneck Island', 'Rhode Island'],
-    certifications: ['Licensed & insured'],
+    certifications: ['Rhode Island Registered Contractor #37417'],
   },
 
   copy: {
-    heroHeadline: 'Restoration Craftsmanship for Newport\'s Historic Homes',
-    heroSubtitle: 'Thirty years of experience. Thoughtful restorations, renovations, and additions across Aquidneck Island.',
-    servicesOverviewSubtitle: 'Restoration, renovation, and addition work for historic and older homes—preserving character and improving longevity.',
-    servicesOverviewSupporting: 'Custom woodwork and finish craftsmanship are woven into every project.',
-    servicesPageHeroSubtitle: 'Restoration, renovation, and addition work for Newport\'s historic and older homes. Craftsmanship built to last.',
-    aboutHeroSubtitle: 'Thirty years of restoration and renovation experience for Newport and Aquidneck Island.',
-    aboutSpecializeSubtitle: 'Restoration craftsmanship, thoughtful renovation, and work done properly.',
+    heroHeadline: 'Old Homes. Built Right.',
+    heroSubtitle:
+      'Over 30 years of hands-on craftsmanship across additions, renovations, kitchens, and baths—bringing modern precision to homes with history.',
+    servicesOverviewTitle: 'Craftsmanship Across Every Part of Your Home',
+    servicesOverviewSubtitle:
+      'From kitchens and baths to full additions and restoration work—done with respect for the home and attention to detail.',
+    servicesOverviewSupporting:
+      'Custom woodwork and finish craftsmanship are part of every project.',
+    servicesPageHeroTitle: 'What We Build',
+    servicesPageHeroSubtitle:
+      'Additions, renovations, kitchens, baths, and restoration work—crafted to last.',
+    aboutHeroTitle: "A Craftsman's Approach",
+    aboutHeroSubtitle:
+      '30+ years of building, restoring, and improving homes across Newport and Aquidneck Island.',
+    aboutSpecializeSubtitle:
+      'A full range of craftsmanship, with deep experience in older homes.',
     additionalCraftsmanshipTitle: 'Custom Woodwork & Supporting Craftsmanship',
     additionalCraftsmanshipBody:
-      'Custom woodwork, millwork, and finish craftsmanship are integral to our restoration and renovation work. Period-appropriate details, matching existing trim, and quality materials—whether it\'s a historic restoration, a kitchen or bathroom renovation, or an addition that needs to blend with the original structure.',
+      "Custom woodwork and finish craftsmanship are at the core of everything we do—whether it's a kitchen, an addition, or restoring original details. Period-appropriate details, matching existing trim, and quality materials still apply across every kind of project.",
     testimonialsSubtitle: 'What Newport and Aquidneck Island homeowners say about working with us.',
-    ctaTitle: 'Discuss Your Restoration or Renovation',
-    ctaSubtitle: 'We\'d be glad to discuss your historic home. Reach out and we\'ll respond within 24 hours.',
-    contactHeroSubtitle: 'Discuss your historic home restoration or renovation. We typically respond within 24 hours.',
+    ctaTitle: "Let's Talk About Your Home",
+    ctaSubtitle:
+      "Whether you're planning an addition, renovation, or restoring an older space, we're ready to help.",
+    contactHeroSubtitle:
+      "Whether you're planning an addition, renovation, or restoring an older space, we typically respond within 24 hours.",
     aboutServiceAreasSubtitle: 'Serving Newport and Aquidneck Island homeowners.',
-    aboutValuesSubtitle: 'What guides our work on every historic home.',
-    projectsHeroSubtitle: 'Our work focuses on thoughtful restorations, renovations, and additions throughout Newport and Aquidneck Island.',
-    projectsIntroHeadline: 'Restoration Work That Respects Character',
+    aboutValuesSubtitle: 'What guides our work on every home.',
+    projectsHeroSubtitle:
+      'Our work spans additions, renovations, kitchens, baths, and restoration across Newport and Aquidneck Island.',
+    projectsIntroHeadline: 'Craftsmanship Across Every Project',
     projectsIntroDescription:
-      'Our work focuses on thoughtful restorations, renovations, and additions throughout Newport and Aquidneck Island. Each project reflects careful craftsmanship and respect for the character of older homes.',
+      'Our work spans additions, renovations, kitchens, baths, and restoration projects across Newport and Aquidneck Island. Every project is approached with the same goal: do it right and make it last.',
     projectsGalleryTitle: 'Gallery',
-    projectsGallerySubtitle: 'Additional images from our restoration and renovation work.',
+    projectsGallerySubtitle:
+      'Additional images from additions, renovations, and restoration work across Newport and Aquidneck Island.',
   },
 
   primaryServiceDescriptions: {
-    restorations:
-      'Restore and preserve historic and period homes. We bring careful craftsmanship to character-defining details—exterior restoration, period-appropriate interior work, and structural updates that respect older construction. Newport and Aquidneck Island have many homes that deserve work done properly.',
-    renovations:
-      'Thoughtful renovations for older homes. Kitchens, bathrooms, interior finishes—we coordinate every detail for a cohesive result that respects the existing structure. We understand older construction, material compatibility, and how to improve a home without losing what makes it special.',
     additions:
-      'Additions that match your home. New rooms, decks, porches—we handle foundation through finish, with attention to how new work meets the existing structure. For historic and older homes, we take care that additions feel integrated rather than tacked on.',
+      "Additions that feel like they've always been part of your home. New rooms, decks, and porches—we handle foundation through finish, with attention to how new work meets the existing structure so everything reads as intentional, not tacked on.",
+    renovations:
+      'Kitchens, bathrooms, and interior spaces done properly. We coordinate every detail for a cohesive result that respects the existing structure—older construction, material compatibility, and improved function without losing what makes the home special.',
+    restorations:
+      'When older homes need careful repair or preservation. We bring careful craftsmanship to character-defining details—exterior work, period-appropriate interiors, and structural updates that respect older construction.',
   },
 
   supportingSpecialties: [

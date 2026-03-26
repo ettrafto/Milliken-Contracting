@@ -4,6 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "generate-projects-index": "node scripts/generate-projects-index.mjs",
+    "predev": "node scripts/generate-projects-index.mjs",
+    "prebuild": "node scripts/generate-projects-index.mjs",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",

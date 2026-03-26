@@ -54,13 +54,28 @@ Without an endpoint, the form runs in demo mode (simulates success).
 
 ## Images
 
-Place client images in `public/images/`:
+Assets live under `public/images/`:
 
-- `hero/` - Hero section images
-- `services/` - Service images
-- `about/` - About/team photos
+- **Root** — Numbered portfolio photos (`1.jpg`, `1-pre.jpg`, etc.) referenced by [`src/content/imageManifest.ts`](src/content/imageManifest.ts).
+- **`home/`** — Home hero (`home-header.png`), optional extras (`home-about.jpg`).
+- **`other/`** — Page headers (`about-header.jpg`, `contact-header.jpg`), Aquidneck map (`aquidneck island.png`).
+- **`services/`** — Service section images (`service-additions.jpg`, `service-renovations.jpg`, `service-restorations.png`, `services-header.jpg`).
 
-Update paths in `src/data/services.ts` to use `/images/...`.
+URLs are built with `getImagePath()` from the manifest; do not hardcode paths except for one-off assets if needed. Service cards resolve via [`src/content/services.ts`](src/content/services.ts).
+
+### Projects page (`public/images/projects/`)
+
+- **Project folders** — Each subfolder with a `description.json` is one project on `/projects` and `/projects/:slug`. Put that project’s images in the same folder. The app reads [`src/content/generated/projectsIndex.json`](src/content/generated/projectsIndex.json), which is produced by:
+
+  ```bash
+  npm run generate-projects-index
+  ```
+
+  This runs automatically before `npm run dev` and `npm run build`.
+
+- **`description.json` fields** — `title`, `type` (e.g. Restoration / Renovation / Addition), `location`, `description`, `featured`, `order`, optional `slug`, `coverImage` (filename in folder), `gallery` (array of filenames), `beforeAfter` (array of `{ "before", "after", "label" }` with local filenames). Remote `http(s)` URLs are ignored.
+
+- **Gallery strip** — Image files placed **directly** under `public/images/projects/` (not inside a project subfolder) appear in the “Gallery” section below the project grid, with optional alt text from [`imageManifest.ts`](src/content/imageManifest.ts) when filenames match.
 
 ## Deployment
 

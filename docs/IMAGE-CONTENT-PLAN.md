@@ -2,6 +2,8 @@
 
 A strategic visual content plan for the 26 project images in `/public/images`, supporting a premium, image-forward construction website.
 
+**Folder layout:** Numbered portfolio files remain at `public/images/` (root). Dedicated assets live in `home/`, `other/`, and `services/`. Runtime URLs are built from [`src/content/imageManifest.ts`](../src/content/imageManifest.ts) via `getImagePath()` (optional `directory` per entry).
+
 ---
 
 ## 1. Image Audit
