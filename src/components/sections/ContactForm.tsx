@@ -1,7 +1,24 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { Button } from '../ui/Button';
 
-const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT || '';
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '';
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || '';
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '';
+
+const emailJsConfigured = Boolean(PUBLIC_KEY && SERVICE_ID && TEMPLATE_ID);
+
+/** Keys must match the variables in your EmailJS template (e.g. {{name}}, {{email}}). */
+function buildTemplateParams(formData: FormData): Record<string, string> {
+  const projectType = formData.get('project-type');
+  return {
+    name: String(formData.get('name') ?? '').trim(),
+    email: String(formData.get('email') ?? '').trim(),
+    phone: String(formData.get('phone') ?? '').trim(),
+    project_type: typeof projectType === 'string' ? projectType : '',
+    description: String(formData.get('description') ?? '').trim(),
+  };
+}
 
 interface ContactFormProps {
   variant?: 'light' | 'dark';
@@ -17,28 +34,30 @@ export function ContactForm({ variant = 'light' }: ContactFormProps) {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    if (FORMSPREE_ENDPOINT) {
-      try {
-        const response = await fetch(FORMSPREE_ENDPOINT, {
-          method: 'POST',
-          body: formData,
-          headers: { Accept: 'application/json' },
-        });
-        if (response.ok) {
-          setStatus('success');
-          form.reset();
-        } else {
-          setStatus('error');
-        }
-      } catch {
-        setStatus('error');
-      }
-    } else {
-      // Demo mode - simulate success
+    if (formData.get('_gotcha')) {
+      setTimeout(() => {
+        setStatus('success');
+        form.reset();
+      }, 600);
+      return;
+    }
+
+    if (!emailJsConfigured) {
       setTimeout(() => {
         setStatus('success');
         form.reset();
       }, 1000);
+      return;
+    }
+
+    const templateParams = buildTemplateParams(formData);
+
+    try {
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, { publicKey: PUBLIC_KEY });
+      setStatus('success');
+      form.reset();
+    } catch {
+      setStatus('error');
     }
   };
 

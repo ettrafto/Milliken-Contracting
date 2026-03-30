@@ -44,13 +44,18 @@ Edit files in `src/data/` to update site content:
 
 ## Contact Form
 
-The contact form supports Formspree for lead capture. To enable:
+The contact form uses [EmailJS](https://www.emailjs.com/) to send messages from the browser (no server required).
 
-1. Create a form at [formspree.io](https://formspree.io)
-2. Copy `.env.example` to `.env`
-3. Add your Formspree endpoint: `VITE_FORMSPREE_ENDPOINT=https://formspree.io/f/xxxxx`
+1. Create an EmailJS account and add an **email service** (e.g. Gmail).
+2. Create an **email template** with **To** set to your inbox (e.g. `millikenjorgen@gmail.com`). Use these template variables so they match the app: `{{name}}`, `{{email}}`, `{{phone}}`, `{{project_type}}`, `{{description}}`.
+3. Copy `.env.example` to `.env` and set:
+   - `VITE_EMAILJS_PUBLIC_KEY` — Account → API keys
+   - `VITE_EMAILJS_SERVICE_ID` — Email Services
+   - `VITE_EMAILJS_TEMPLATE_ID` — Email Templates
 
-Without an endpoint, the form runs in demo mode (simulates success).
+Restart `npm run dev` after changing `.env`. For production, add the same three variables to your host’s build settings.
+
+Without all three values set, the form runs in **demo mode** (simulates success and does not send email). In the EmailJS dashboard, restrict **allowed domains** to your production hostname to reduce abuse.
 
 ## Images
 
