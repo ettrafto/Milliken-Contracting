@@ -27,7 +27,7 @@ export function BeforeAfterSlider({
         <img
           src={afterImage}
           alt={afterAlt}
-          className="absolute inset-0 h-full w-full object-cover object-center"
+          className="absolute inset-0 h-full w-full object-contain object-center"
           loading="lazy"
         />
         {/* Before image (clipped via clip-path to preserve aspect ratio) */}
@@ -38,7 +38,7 @@ export function BeforeAfterSlider({
           <img
             src={beforeImage}
             alt={beforeAlt}
-            className="absolute inset-0 h-full w-full object-cover object-center"
+            className="absolute inset-0 h-full w-full object-contain object-center"
             loading="lazy"
           />
         </div>

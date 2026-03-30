@@ -2,7 +2,7 @@ import { HeroSimple } from '../components/sections/HeroSimple';
 import { Section } from '../components/ui/Section';
 import { Button } from '../components/ui/Button';
 import { ServiceDetail } from '../components/sections/ServiceDetail';
-import { services } from '../data';
+import { servicesPageServices } from '../data';
 import { siteContent } from '../content/siteContent';
 import { getServicesHeroImage } from '../content/homeContent';
 
@@ -18,7 +18,7 @@ export function ServicesPage() {
       />
       <Section background="cream">
         <div className="space-y-32">
-          {services.map((service) => (
+          {servicesPageServices.map((service) => (
             <ServiceDetail key={service.id} service={service} />
           ))}
         </div>

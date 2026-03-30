@@ -10,6 +10,7 @@ const SERVICE_IMAGE_MAP: Record<string, string> = {
   restorations: 'service-restorations',
   renovations: 'service-renovations',
   additions: 'service-additions',
+  'full-construction': 'service-fullconstruction',
 };
 
 export function getServiceImage(slug: string): ImageManifestEntry | undefined {

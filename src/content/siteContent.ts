@@ -79,6 +79,8 @@ export const siteContent = {
       'Kitchens, bathrooms, and interior spaces done properly. We coordinate every detail for a cohesive result that respects the existing structure—older construction, material compatibility, and improved function without losing what makes the home special.',
     restorations:
       'When older homes need careful repair or preservation. We bring careful craftsmanship to character-defining details—exterior work, period-appropriate interiors, and structural updates that respect older construction.',
+    fullConstruction:
+      'Ground-up and large-scale construction with the same craftsman-led approach. From structural framing and weatherproofing through coordination with trades, we manage complex builds with clear communication and workmanship built to last.',
   },
 
   supportingSpecialties: [

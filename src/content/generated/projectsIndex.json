@@ -1,64 +1,55 @@
 {
   "projects": [
     {
-      "folder": "porch-renovation",
+      "folder": "guilded-age-porch",
       "description": {
-        "title": "Porch Renovation",
-        "type": "Renovation",
-        "location": "Aquidneck Island",
-        "description": "Complete porch renovation with new decking, railings, and structural updates.",
-        "featured": true,
-        "coverImage": "",
+        "title": "Gilded age restoration",
+        "type": "Restoration",
+        "location": "Newport, RI",
+        "description": "Extensive restoration of a historic structure, including full stair rebuild and structural reinforcement of the porch and living space above. Installed concealed steel supports to preserve the original column design, repaired existing beams with steel reinforcement and through-bolting, restored drainage systems, re-chinked the foundation, and matched all finishes to the home's original period detailing. Required significant custom problem-solving to maintain historical integrity while meeting modern structural standards.",
+        "featured": false,
+        "coverImage": "guilded-age-porch-cover.png",
         "gallery": [],
         "beforeAfter": [],
         "order": 1
       },
-      "folderImages": []
+      "folderImages": [
+        "guilded-age-porch-cover.png"
+      ]
     },
     {
-      "folder": "circle-window",
+      "folder": "triple-stack-barrel",
       "description": {
-        "title": "Circle Window",
+        "title": "Framing & Triple stack barrel porch",
         "type": "Restoration",
         "location": "Newport, RI",
-        "description": "Custom circular window integration with curved wall detailing.",
-        "featured": true,
-        "coverImage": "",
+        "description": "Oversaw framing for a large-scale build, followed by construction of a complex triple-arch porch with a barrel ceiling. Executed with minimal plan detail, requiring on-site problem solving and precise custom layout.",
+        "featured": false,
+        "coverImage": "triple-bucket-cover.png",
         "gallery": [],
         "beforeAfter": [],
         "order": 2
       },
-      "folderImages": []
+      "folderImages": [
+        "triple-bucket-cover.png"
+      ]
     },
     {
-      "folder": "custom-staircase",
+      "folder": "full-porch",
       "description": {
-        "title": "Custom Staircase",
-        "type": "Renovation",
-        "location": "Aquidneck Island",
-        "description": "Custom staircase with period-appropriate millwork.",
-        "featured": true,
-        "coverImage": "",
-        "gallery": [],
-        "beforeAfter": [],
-        "order": 5
-      },
-      "folderImages": []
-    },
-    {
-      "folder": "living-room-update",
-      "description": {
-        "title": "Living Room Update",
-        "type": "Renovation",
+        "title": "Porch - Start to finish",
+        "type": "Restoration",
         "location": "Newport, RI",
-        "description": "Thoughtful living room renovation for an older home.",
+        "description": "Full porch rebuild including removal of the existing foundation and installation of a new poured concrete base. Completed while supporting the second-story structure in place. Work included new posts, roof reframing, hurricane strapping, tongue-and-groove ceiling installation, and restoration of original corbels.",
         "featured": false,
-        "coverImage": "",
+        "coverImage": "full-porch-cover.jpg",
         "gallery": [],
         "beforeAfter": [],
-        "order": 6
+        "order": 3
       },
-      "folderImages": []
+      "folderImages": [
+        "home-header.png"
+      ]
     },
     {
       "folder": "porch-overhang",
@@ -66,44 +57,50 @@
         "title": "Porch Overhang",
         "type": "Addition",
         "location": "Aquidneck Island",
-        "description": "New porch overhang integrated with the existing structure.",
+        "description": "Custom-built porch overhang with exposed mahogany and fir door trim. Designed and installed to highlight the entry while providing long-term weather protection with clean, traditional detailing.",
         "featured": false,
-        "coverImage": "",
+        "coverImage": "porch-overhang-cover.jpg",
         "gallery": [],
         "beforeAfter": [],
-        "order": 7
+        "order": 4
       },
-      "folderImages": []
+      "folderImages": [
+        "porch-overhang-cover.jpg"
+      ]
     },
     {
-      "folder": "guilded-age-porch",
+      "folder": "custom-staircase",
       "description": {
-        "title": "Gilded Age Porch",
-        "type": "Restoration",
-        "location": "Newport, RI",
-        "description": "Historic porch restoration honoring Gilded Age details.",
-        "featured": false,
-        "coverImage": "",
+        "title": "Custom maple staircase",
+        "type": "Renovation",
+        "location": "Aquidneck Island",
+        "description": "Crafted a custom hard maple staircase with reinforced stringers for a completely solid, squeak-free build. Features include a blind-fastened horizontal railing system and clean integration with the upper deck.",
+        "featured": true,
+        "coverImage": "custom-staircase-cover.jpg",
         "gallery": [],
         "beforeAfter": [],
-        "order": 8
+        "order": 5
       },
-      "folderImages": []
+      "folderImages": [
+        "custom-staircase-cover.jpg"
+      ]
     },
     {
-      "folder": "triple-stack-barrel",
+      "folder": "circle-window",
       "description": {
-        "title": "Triple Stack Barrel",
+        "title": "Custom circle windows",
         "type": "Restoration",
         "location": "Newport, RI",
-        "description": "Triple-stack barrel detail restoration.",
-        "featured": false,
-        "coverImage": "",
+        "description": "Fabricated custom trim for four circular windows after manufacturer pricing proved excessive. Built a jig to produce consistent, high-quality pieces in-house—delivering better craftsmanship while saving the homeowner thousands.",
+        "featured": true,
+        "coverImage": "circle-window-cover.png",
         "gallery": [],
         "beforeAfter": [],
-        "order": 9
+        "order": 6
       },
-      "folderImages": []
+      "folderImages": [
+        "circle-window-cover.png"
+      ]
     },
     {
       "folder": "column-repair",
@@ -111,14 +108,33 @@
         "title": "Column Repair",
         "type": "Restoration",
         "location": "Newport, RI",
-        "description": "Ornate porch column repair and restoration.",
+        "description": "Specializing in the restoration of traditional columns. This project involved repairing and reinforcing aging structural elements while maintaining the original proportions and architectural style.",
         "featured": false,
-        "coverImage": "",
+        "coverImage": "column-repair-cover.jpg",
         "gallery": [],
         "beforeAfter": [],
-        "order": 10
+        "order": 7
       },
-      "folderImages": []
+      "folderImages": [
+        "column-repair-cover.jpg"
+      ]
+    },
+    {
+      "folder": "porch-renovation",
+      "description": {
+        "title": "Front Porch Renovation",
+        "type": "Renovation",
+        "location": "Aquidneck Island",
+        "description": "Full front porch renovation from the ground up. Installed new footings, structural framing, and ledger connections to ensure long-term stability while preserving the character of the home.",
+        "featured": true,
+        "coverImage": "porch-renovation-cover.jpg",
+        "gallery": [],
+        "beforeAfter": [],
+        "order": 8
+      },
+      "folderImages": [
+        "porch-renovation-cover.jpg"
+      ]
     }
   ],
   "looseImages": [

@@ -1,11 +1,11 @@
 {
-  "title": "Triple Stack Barrel",
+  "title": "Framing & Triple stack barrel porch",
   "type": "Restoration",
   "location": "Newport, RI",
-  "description": "Triple-stack barrel detail restoration.",
+  "description": "Oversaw framing for a large-scale build, followed by construction of a complex triple-arch porch with a barrel ceiling. Executed with minimal plan detail, requiring on-site problem solving and precise custom layout.",
   "featured": false,
-  "coverImage": "",
+  "coverImage": "triple-bucket-cover.png",
   "gallery": [],
   "beforeAfter": [],
-  "order": 9
+  "order": 2
 }

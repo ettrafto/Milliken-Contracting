@@ -1,11 +1,11 @@
 {
-  "title": "Porch Renovation",
+  "title": "Front Porch Renovation",
   "type": "Renovation",
   "location": "Aquidneck Island",
-  "description": "Complete porch renovation with new decking, railings, and structural updates.",
+  "description": "Full front porch renovation from the ground up. Installed new footings, structural framing, and ledger connections to ensure long-term stability while preserving the character of the home.",
   "featured": true,
-  "coverImage": "",
+  "coverImage": "porch-renovation-cover.jpg",
   "gallery": [],
   "beforeAfter": [],
-  "order": 1
+  "order": 8
 }

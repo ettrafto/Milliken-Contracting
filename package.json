@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "generate-projects-index": "node scripts/generate-projects-index.mjs",
+    "sync-project-covers": "node scripts/sync-project-cover-images.mjs",
     "predev": "node scripts/generate-projects-index.mjs",
     "prebuild": "node scripts/generate-projects-index.mjs",
     "dev": "vite",

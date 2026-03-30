@@ -663,6 +663,25 @@ export const imageManifest: ImageManifestEntry[] = [
     cropRecommendation: null,
     orphanGalleryEligible: false,
   },
+  {
+    id: 'service-fullconstruction',
+    directory: 'services',
+    filename: 'service-full-construction.png',
+    alt: 'Large residential home under construction with framing, Tyvek weatherproofing, and equipment on site',
+    category: 'exterior',
+    tags: ['full-construction', 'services'],
+    orientation: 'landscape',
+    featured: false,
+    heroCandidate: false,
+    recommendedPlacement: ['services'],
+    priority: 2,
+    serviceAssociations: ['full-construction'],
+    projectGroup: null,
+    beforeAfter: null,
+    notes: 'Services page — full construction.',
+    cropRecommendation: null,
+    orphanGalleryEligible: false,
+  },
 ];
 
 // --- Helpers ---

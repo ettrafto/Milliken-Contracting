@@ -3,7 +3,6 @@ import {
   projectAssetUrl,
   altForProjectImage,
   getCategoryLabel,
-  getManifestEntryByFilename,
 } from '../../content/projects';
 import { BeforeAfterSlider } from '../ui/BeforeAfterSlider';
 
@@ -34,13 +33,13 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
         </p>
       </div>
 
-      {/* Cover image */}
+      {/* Cover image — natural aspect ratio, no crop */}
       {coverPath && (
-        <div className="aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-sm bg-[var(--color-border)]">
+        <div className="overflow-hidden rounded-sm bg-[var(--color-border)]">
           <img
             src={coverPath}
             alt={altForProjectImage(project.coverFilename)}
-            className="w-full h-full object-cover object-center"
+            className="w-full h-auto block"
             loading="eager"
           />
         </div>
@@ -74,25 +73,19 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
             Gallery
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {project.galleryFilenames.map((filename) => {
-              const entry = getManifestEntryByFilename(filename);
-              const orientation = entry?.orientation ?? 'portrait';
-              const aspectClass =
-                orientation === 'landscape' ? 'aspect-[16/9]' : 'aspect-[4/5]';
-              return (
-                <div
-                  key={filename}
-                  className={`overflow-hidden rounded-sm ${aspectClass}`}
-                >
-                  <img
-                    src={projectAssetUrl(project.folder, filename)}
-                    alt={altForProjectImage(filename)}
-                    className="w-full h-full object-cover object-center"
-                    loading="lazy"
-                  />
-                </div>
-              );
-            })}
+            {project.galleryFilenames.map((filename) => (
+              <div
+                key={filename}
+                className="overflow-hidden rounded-sm bg-[var(--color-border)]"
+              >
+                <img
+                  src={projectAssetUrl(project.folder, filename)}
+                  alt={altForProjectImage(filename)}
+                  className="w-full h-auto block"
+                  loading="lazy"
+                />
+              </div>
+            ))}
           </div>
         </div>
       )}

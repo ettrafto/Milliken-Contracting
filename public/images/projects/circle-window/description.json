@@ -1,11 +1,11 @@
 {
-  "title": "Circle Window",
+  "title": "Custom circle windows",
   "type": "Restoration",
   "location": "Newport, RI",
-  "description": "Custom circular window integration with curved wall detailing.",
+  "description": "Fabricated custom trim for four circular windows after manufacturer pricing proved excessive. Built a jig to produce consistent, high-quality pieces in-house—delivering better craftsmanship while saving the homeowner thousands.",
   "featured": true,
-  "coverImage": "",
+  "coverImage": "circle-window-cover.png",
   "gallery": [],
   "beforeAfter": [],
-  "order": 2
+  "order": 6
 }

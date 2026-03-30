@@ -43,10 +43,34 @@ const primaryServicesData: Omit<Service, 'images'>[] = [
       'Structural updates for older construction',
     ],
   },
+  {
+    id: '4',
+    title: 'Full Construction',
+    slug: 'full-construction',
+    description: siteContent.primaryServiceDescriptions.fullConstruction,
+    shortDescription: 'Ground-up and large-scale builds managed with craftsman oversight.',
+    scopeOfWork: [
+      'Structural framing and envelope',
+      'Coordination from shell through finish',
+      'Ground-up and major new construction',
+      'Site logistics and trade coordination',
+    ],
+  },
 ];
 
-export const services: Service[] = primaryServicesData.map((s) => ({
-  ...s,
-  images: [getServiceImagePath(s.slug)],
-  imageAlt: getServiceImageAlt(s.slug),
-}));
+function toServiceWithImages(s: Omit<Service, 'images'>): Service {
+  return {
+    ...s,
+    images: [getServiceImagePath(s.slug)],
+    imageAlt: getServiceImageAlt(s.slug),
+  };
+}
+
+/** Home and overview: first three services only */
+export const services: Service[] = primaryServicesData
+  .filter((s) => s.slug !== 'full-construction')
+  .map(toServiceWithImages);
+
+/** Services page: includes Full Construction */
+export const servicesPageServices: Service[] =
+  primaryServicesData.map(toServiceWithImages);
