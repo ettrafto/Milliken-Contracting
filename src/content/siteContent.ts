@@ -32,6 +32,10 @@ export const siteContent = {
     ],
     serviceAreas: ['Newport', 'Aquidneck Island', 'Rhode Island'],
     certifications: ['Rhode Island Registered Contractor #37417'],
+    /** Experience & Credentials section — additional trust lines */
+    credentialsLicensedStatement:
+      'All work done by licensed/registered contractors.',
+    credentialsDesignation: 'Water Deterrent Technician',
   },
 
   copy: {
@@ -62,6 +66,8 @@ export const siteContent = {
       "Whether you're planning an addition, renovation, or restoring an older space, we typically respond within 24 hours.",
     aboutServiceAreasSubtitle: 'Serving Newport and Aquidneck Island homeowners.',
     aboutValuesSubtitle: 'What guides our work on every home.',
+    aboutCredentialsSubtitle:
+      'Licensed professionals, clear qualifications, and workmanship you can rely on.',
     projectsHeroSubtitle:
       'Our work spans additions, renovations, kitchens, baths, and restoration across Newport and Aquidneck Island.',
     projectsIntroHeadline: 'Craftsmanship Across Every Project',

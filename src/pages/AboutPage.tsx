@@ -49,25 +49,45 @@ export function AboutPage() {
       <Section background="cream">
         <SectionHeader
           title="Experience & Credentials"
-          subtitle=""
+          subtitle={siteContent.copy.aboutCredentialsSubtitle}
         />
-        <div className="flex flex-wrap gap-8 justify-center mb-12">
-          <div className="text-center">
-            <span className="block text-4xl md:text-5xl font-[family-name:var(--font-display)] font-semibold text-[var(--color-terracotta)]">
-              {companyInfo.yearsInBusiness}+
-            </span>
-            <span className="text-sm text-[var(--color-text-muted)]">
-              Years in Business
-            </span>
-          </div>
-          {companyInfo.certifications?.map((cert) => (
-            <div
-              key={cert}
-              className="px-6 py-3 bg-white rounded-lg shadow-md text-[var(--color-text)] font-medium"
-            >
-              {cert}
+        <div className="max-w-3xl mx-auto">
+          <div className="flex flex-wrap gap-8 justify-center mb-10">
+            <div className="text-center">
+              <span className="block text-4xl md:text-5xl font-[family-name:var(--font-display)] font-semibold text-[var(--color-terracotta)]">
+                {companyInfo.yearsInBusiness}+
+              </span>
+              <span className="text-sm text-[var(--color-text-muted)]">
+                Years in Business
+              </span>
             </div>
-          ))}
+            {companyInfo.certifications?.map((cert) => (
+              <div
+                key={cert}
+                className="px-6 py-3 bg-white rounded-lg shadow-md text-[var(--color-text)] font-medium self-center"
+              >
+                {cert}
+              </div>
+            ))}
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 md:gap-8">
+            <div className="rounded-lg border border-[var(--color-border)] bg-white p-6 md:p-7 shadow-sm">
+              <p className="text-xs font-medium uppercase tracking-[var(--tracking-wide)] text-[var(--color-metallic-blue)] mb-3">
+                Licensed work
+              </p>
+              <p className="text-base md:text-lg font-medium leading-relaxed text-[var(--color-text)]">
+                {siteContent.company.credentialsLicensedStatement}
+              </p>
+            </div>
+            <div className="rounded-lg border border-[var(--color-border)] bg-white p-6 md:p-7 shadow-sm">
+              <p className="text-xs font-medium uppercase tracking-[var(--tracking-wide)] text-[var(--color-metallic-blue)] mb-3">
+                Certification
+              </p>
+              <p className="text-base md:text-lg font-medium leading-relaxed text-[var(--color-text)]">
+                {siteContent.company.credentialsDesignation}
+              </p>
+            </div>
+          </div>
         </div>
       </Section>
       <Section background="warm-gray">
