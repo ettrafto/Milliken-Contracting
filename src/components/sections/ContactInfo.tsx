@@ -29,10 +29,12 @@ export function ContactInfo({ contact }: ContactInfoProps) {
             {contact.email}
           </a>
         </li>
-        {/*<li>
-          <span className="block text-sm text-[var(--color-text-muted)] mb-1">Address</span>
-          <p className="text-[var(--color-text)]">{contact.address}</p>
-        </li>*/}
+        {contact.address && (
+          <li>
+            <span className="block text-sm text-[var(--color-text-muted)] mb-1">Address</span>
+            <p className="text-[var(--color-text)]">{contact.address}</p>
+          </li>
+        )}
       </ul>
     </div>
   );

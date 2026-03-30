@@ -8,6 +8,8 @@ import { ImageGalleryModal } from '../components/ui/ImageGalleryModal';
 import { getProjects, getLooseProjectGalleryImages } from '../content/projects';
 import { siteContent } from '../content/siteContent';
 import { getProjectsHeroImage } from '../content/homeContent';
+import { PageMeta } from '../components/seo/PageMeta';
+import { SEO } from '../seo/metaCopy';
 
 export function ProjectsPage() {
   const heroImage = getProjectsHeroImage();
@@ -17,10 +19,12 @@ export function ProjectsPage() {
 
   return (
     <>
+      <PageMeta title={SEO.projects.title} description={SEO.projects.description} path="/projects" />
       <HeroSimple
         title="Our Projects"
         subtitle={siteContent.copy.projectsHeroSubtitle}
         image={heroImage.src || undefined}
+        imageAlt={heroImage.alt || undefined}
         imagePosition={heroImage.imageObjectPosition}
       />
       <Section background="cream">

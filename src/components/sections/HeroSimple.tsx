@@ -2,20 +2,29 @@ interface HeroSimpleProps {
   title: string;
   subtitle?: string;
   image?: string;
+  /** Short alt for hero photo when present (SEO); decorative if omitted */
+  imageAlt?: string;
   /** CSS object-position (e.g. "center 30%" to show more of top). Default: center */
   imagePosition?: string;
 }
 
-export function HeroSimple({ title, subtitle, image, imagePosition = 'center' }: HeroSimpleProps) {
+export function HeroSimple({
+  title,
+  subtitle,
+  image,
+  imageAlt,
+  imagePosition = 'center',
+}: HeroSimpleProps) {
   return (
     <section className={`relative overflow-hidden ${image ? 'min-h-[40vh] py-24 md:py-32' : 'py-24 md:py-32'}`}>
       {image && (
         <>
           <img
             src={image}
-            alt=""
+            alt={imageAlt ?? ''}
             className="absolute inset-0 w-full h-full object-cover"
             style={{ objectPosition: imagePosition }}
+            decoding="async"
           />
           <div className="absolute inset-0 bg-black/50" />
         </>

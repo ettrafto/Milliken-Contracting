@@ -3,6 +3,8 @@ import { Section } from '../components/ui/Section';
 import { Button } from '../components/ui/Button';
 import { ProjectDetail } from '../components/sections/ProjectDetail';
 import { getProjectBySlug } from '../content/projects';
+import { PageMeta } from '../components/seo/PageMeta';
+import { SEO, truncateMeta } from '../seo/metaCopy';
 
 export function ProjectDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -11,6 +13,12 @@ export function ProjectDetailPage() {
   if (!project) {
     return (
       <Section background="cream">
+        <PageMeta
+          title="Project not found | Milliken Contracting"
+          description={SEO.projects.description}
+          path={slug ? `/projects/${slug}` : '/projects'}
+          noindex
+        />
         <div className="max-w-2xl mx-auto text-center py-16">
           <h1 className="font-[family-name:var(--font-display)] text-2xl font-semibold text-[var(--color-text)] mb-4">
             Project not found
@@ -28,6 +36,11 @@ export function ProjectDetailPage() {
 
   return (
     <Section background="cream">
+      <PageMeta
+        title={`${project.title} | Milliken Contracting`}
+        description={truncateMeta(project.description)}
+        path={`/projects/${project.slug}`}
+      />
       <div className="max-w-5xl mx-auto">
         <Link
           to="/projects"

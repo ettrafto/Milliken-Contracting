@@ -21,7 +21,7 @@ Verbatim (or near-verbatim) text visible on the Milliken Contracting site, group
 |------|------|
 | Company | Milliken Contracting |
 | Tagline | Restoration craftsmanship for Newport's historic homes. |
-| Contact | (401) 207-8109 · jorgo197755@gmail.com |
+| Contact | (401) 207-8109 · millikenjorgen@gmail.com |
 | Source (contact) | `src/data/contact.ts` / `business.ts` |
 | Service areas | Newport, Aquidneck Island, Rhode Island |
 | Copyright | © *{current year}* Milliken Contracting. All rights reserved. |
@@ -232,7 +232,7 @@ Additions that match your home. New rooms, decks, porches—we handle foundation
 |---------|------|
 | **H3** | Get in Touch |
 | **Phone** | (401) 207-8109 |
-| **Email** | jorgo197755@gmail.com |
+| **Email** | millikenjorgen@gmail.com |
 | **H3** | Service Areas |
 | **Body** | Newport, Aquidneck Island, Rhode Island |
 

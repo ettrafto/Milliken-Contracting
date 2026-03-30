@@ -37,6 +37,7 @@ export function ServiceDetail({ service }: ServiceDetailProps) {
               alt={service.imageAlt ?? service.title}
               className="w-full h-full object-cover object-center"
               loading="lazy"
+              decoding="async"
             />
           </div>
         </div>

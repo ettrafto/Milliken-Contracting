@@ -5,18 +5,30 @@ import { ServiceDetail } from '../components/sections/ServiceDetail';
 import { servicesPageServices } from '../data';
 import { siteContent } from '../content/siteContent';
 import { getServicesHeroImage } from '../content/homeContent';
+import { PageMeta } from '../components/seo/PageMeta';
+import { SEO } from '../seo/metaCopy';
+import { Link } from 'react-router-dom';
 
 export function ServicesPage() {
   const heroImage = getServicesHeroImage();
   return (
     <>
+      <PageMeta title={SEO.services.title} description={SEO.services.description} path="/services" />
       <HeroSimple
         title={siteContent.copy.servicesPageHeroTitle}
         subtitle={siteContent.copy.servicesPageHeroSubtitle}
         image={heroImage.src || undefined}
+        imageAlt={heroImage.alt || undefined}
         imagePosition="center 90%"
       />
       <Section background="cream">
+        <p className="text-[var(--color-text-muted)] max-w-3xl mb-12">
+          Browse our{' '}
+          <Link to="/projects" className="text-[var(--color-terracotta)] hover:underline">
+            completed projects
+          </Link>{' '}
+          for examples of this work across Newport and Aquidneck Island.
+        </p>
         <div className="space-y-32">
           {servicesPageServices.map((service) => (
             <ServiceDetail key={service.id} service={service} />

@@ -5,15 +5,19 @@ import { ContactInfo } from '../components/sections/ContactInfo';
 import { companyInfo, contactInfo } from '../data';
 import { siteContent } from '../content/siteContent';
 import { getContactHeroImage } from '../content/homeContent';
+import { PageMeta } from '../components/seo/PageMeta';
+import { SEO } from '../seo/metaCopy';
 
 export function ContactPage() {
   const heroImage = getContactHeroImage();
   return (
     <>
+      <PageMeta title={SEO.contact.title} description={SEO.contact.description} path="/contact" />
       <HeroSimple
         title="Get in Touch"
         subtitle={siteContent.copy.contactHeroSubtitle}
         image={heroImage.src || undefined}
+        imageAlt={heroImage.alt || undefined}
       />
       <Section background="cream">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">

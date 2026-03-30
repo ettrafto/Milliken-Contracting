@@ -22,8 +22,9 @@ export const business = {
   contact: {
     phone: '401-207-8109',
     phoneFormatted: '(401) 207-8109',
-    email: 'jorgo197755@gmail.com',
-    //address: null, // _missing: physical address if any
+    email: 'millikenjorgen@gmail.com',
+    /** Set to match Google Business Profile exactly (street, city, ST ZIP); leave empty until confirmed */
+    address: '',
     //mapEmbedUrl: null, // _missing: Google Maps embed
   },
 
@@ -102,8 +103,7 @@ export const business = {
   },
 
   idealClients: {
-    targetMarkets: ['Homeowners', 'Property managers', 'Developers'],
-    targetMarketsInferred: ['Developers'], // "possibly"
+    targetMarkets: ['Homeowners', 'Property managers'],
     clientsTheyEnjoy: [
       'People looking for quality',
       'People looking for longevity',

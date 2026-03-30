@@ -31,6 +31,7 @@ export function Hero({
         className="absolute inset-0 w-full h-full object-cover"
         style={{ objectPosition: imageObjectPosition }}
         fetchPriority="high"
+        decoding="async"
       />
       {/* Even scrim + gradient: improves headline contrast without flattening the photo */}
       <div className="absolute inset-0 bg-black/25" aria-hidden />

@@ -26,7 +26,7 @@ Rewritten copy draft: broader craftsman positioning (additions, kitchens, baths,
 | --------------------------------- | ---------------------------------------------------------------------- |
 | Company                           | Milliken Contracting                                                   |
 | **Tagline (footer + brand line)** | Preserving the character of old homes with modern craftsmanship.       |
-| Contact                           | (401) 207-8109 · [jorgo197755@gmail.com](mailto:jorgo197755@gmail.com) |
+| Contact                           | (401) 207-8109 · [millikenjorgen@gmail.com](mailto:millikenjorgen@gmail.com) |
 | Source (contact)                  | `src/data/contact.ts` / `business.ts`                                  |
 | Service areas                     | Newport, Aquidneck Island, Rhode Island                                |
 | Copyright                         | © *{current year}* Milliken Contracting. All rights reserved.          |
@@ -276,7 +276,7 @@ When older homes need careful repair or preservation. We bring careful craftsman
 | --------- | ----------------------------------------------------- |
 | **H3**    | Get in Touch                                          |
 | **Phone** | (401) 207-8109                                        |
-| **Email** | [jorgo197755@gmail.com](mailto:jorgo197755@gmail.com) |
+| **Email** | [millikenjorgen@gmail.com](mailto:millikenjorgen@gmail.com) |
 | **H3**    | Service Areas                                         |
 | **Body**  | Newport, Aquidneck Island, Rhode Island               |
 

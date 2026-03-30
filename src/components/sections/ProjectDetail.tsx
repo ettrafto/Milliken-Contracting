@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import type { ProjectEntry } from '../../content/projects';
 import {
   projectAssetUrl,
@@ -41,6 +42,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
             alt={altForProjectImage(project.coverFilename)}
             className="w-full h-auto block"
             loading="eager"
+            decoding="async"
           />
         </div>
       )}
@@ -89,6 +91,17 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
           </div>
         </div>
       )}
+
+      <p className="text-[var(--color-text-muted)] pt-4">
+        Planning a similar project?{' '}
+        <Link to="/contact" className="text-[var(--color-terracotta)] hover:underline">
+          Get in touch
+        </Link>
+        {' · '}
+        <Link to="/services" className="text-[var(--color-terracotta)] hover:underline">
+          Our services
+        </Link>
+      </p>
     </article>
   );
 }

@@ -5,15 +5,19 @@ import { Button } from '../components/ui/Button';
 import { companyInfo } from '../data';
 import { siteContent } from '../content/siteContent';
 import { getAboutHeroImage } from '../content/homeContent';
+import { PageMeta } from '../components/seo/PageMeta';
+import { SEO } from '../seo/metaCopy';
 
 export function AboutPage() {
   const heroImage = getAboutHeroImage();
   return (
     <>
+      <PageMeta title={SEO.about.title} description={SEO.about.description} path="/about" />
       <HeroSimple
         title={siteContent.copy.aboutHeroTitle}
         subtitle={siteContent.copy.aboutHeroSubtitle}
         image={heroImage.src || undefined}
+        imageAlt={heroImage.alt || undefined}
       />
       <Section background="cream">
         <div className="max-w-3xl mx-auto">

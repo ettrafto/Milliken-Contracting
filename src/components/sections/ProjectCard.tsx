@@ -31,6 +31,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               alt={altForProjectImage(project.coverFilename)}
               className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-300"
               loading="lazy"
+              decoding="async"
             />
           ) : (
             <div className="flex h-full min-h-[200px] w-full items-center justify-center px-4 text-center text-sm text-[var(--color-text-muted)]">

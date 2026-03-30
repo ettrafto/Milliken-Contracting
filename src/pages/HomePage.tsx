@@ -12,6 +12,8 @@ import {
 } from '../data';
 import { getHeroImage, getAboutPreviewImage } from '../content/homeContent';
 import { siteContent } from '../content/siteContent';
+import { PageMeta } from '../components/seo/PageMeta';
+import { SEO } from '../seo/metaCopy';
 
 export function HomePage() {
   const hero = getHeroImage();
@@ -19,6 +21,7 @@ export function HomePage() {
 
   return (
     <>
+      <PageMeta title={SEO.home.title} description={SEO.home.description} path="/" />
       <Hero
         image={hero.src}
         alt={hero.alt}
