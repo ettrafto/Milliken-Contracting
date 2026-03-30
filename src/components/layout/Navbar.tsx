@@ -12,9 +12,14 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link
             to="/"
-            className="font-[family-name:var(--font-display)] text-2xl md:text-3xl font-semibold tracking-tight text-[var(--color-metallic-blue)] hover:text-[var(--color-terracotta)] transition-colors"
+            className="flex items-center gap-3 md:gap-3.5 font-[family-name:var(--font-display)] text-2xl md:text-3xl font-semibold tracking-tight text-[var(--color-metallic-blue)] hover:text-[var(--color-terracotta)] transition-colors"
           >
-            {companyInfo.name}
+            <img
+              src="/images/other/logo.png"
+              alt=""
+              className="h-9 w-auto md:h-11 object-contain shrink-0"
+            />
+            <span>{companyInfo.name}</span>
           </Link>
 
           {/* Desktop nav */}
