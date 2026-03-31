@@ -14,6 +14,13 @@
         "order": 1
       },
       "folderImages": [
+        "guilded-1.jpg",
+        "guilded-2.jpg",
+        "guilded-3.jpg",
+        "guilded-4.jpg",
+        "guilded-5.jpg",
+        "guilded-6.jpg",
+        "guilded-7.jpg",
         "guilded-age-porch-cover.png"
       ]
     },
@@ -31,6 +38,10 @@
         "order": 2
       },
       "folderImages": [
+        "triple-1.jpg",
+        "triple-2.jpg",
+        "triple-3.jpg",
+        "triple-4.jpg",
         "triple-bucket-cover.png"
       ]
     },
@@ -48,6 +59,12 @@
         "order": 3
       },
       "folderImages": [
+        "full-porch-1.jpg",
+        "full-porch-2.jpg",
+        "full-porch-3.jpg",
+        "full-porch-4.jpg",
+        "full-porch-5.jpg",
+        "full-porch-6.jpg",
         "full-porch-cover.png"
       ]
     },
@@ -65,6 +82,9 @@
         "order": 4
       },
       "folderImages": [
+        "porch-overhang-1.jpg",
+        "porch-overhang-2.jpg",
+        "porch-overhang-3.jpg",
         "porch-overhang-cover.jpg"
       ]
     },
@@ -82,7 +102,12 @@
         "order": 5
       },
       "folderImages": [
-        "custom-staircase-cover.jpg"
+        "custom-staircase-cover.jpg",
+        "staircase-1.jpg",
+        "staircase-2.jpg",
+        "staircase-3.jpg",
+        "staircase-4.jpg",
+        "staircase-5.jpg"
       ]
     },
     {
@@ -99,6 +124,9 @@
         "order": 6
       },
       "folderImages": [
+        "circle-1.jpg",
+        "circle-2.jpg",
+        "circle-3.jpg",
         "circle-window-cover.png"
       ]
     },
@@ -116,6 +144,10 @@
         "order": 7
       },
       "folderImages": [
+        "column-1.jpg",
+        "column-2.jpg",
+        "column-3.jpg",
+        "column-4.jpg",
         "column-repair-cover.jpg"
       ]
     },
@@ -133,6 +165,10 @@
         "order": 8
       },
       "folderImages": [
+        "porch-reno-1.jpg",
+        "porch-reno-2.jpg",
+        "porch-reno-3.jpg",
+        "porch-reno-4.jpg",
         "porch-renovation-cover.jpg"
       ]
     }

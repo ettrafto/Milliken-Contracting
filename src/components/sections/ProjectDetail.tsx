@@ -98,16 +98,16 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
           <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold text-[var(--color-text)]">
             Gallery
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="columns-1 gap-x-6 max-md:gap-x-0 md:columns-2 [column-fill:balance]">
             {project.galleryFilenames.map((filename) => (
               <div
                 key={filename}
-                className="overflow-hidden rounded-sm bg-[var(--color-cream)]"
+                className="mb-6 break-inside-avoid overflow-hidden rounded-sm bg-[var(--color-cream)]"
               >
                 <img
                   src={projectAssetUrl(project.folder, filename)}
                   alt={altForProjectImage(filename)}
-                  className="w-full h-auto block"
+                  className="w-full h-auto block align-middle"
                   loading="lazy"
                 />
               </div>
