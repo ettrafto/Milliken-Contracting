@@ -3,7 +3,7 @@
     {
       "folder": "guilded-age-porch",
       "description": {
-        "title": "Gilded age restoration",
+        "title": "Gilded Age Restoration",
         "type": "Restoration",
         "location": "Newport, RI",
         "description": "Extensive restoration of a historic structure, including full stair rebuild and structural reinforcement of the porch and living space above. Installed concealed steel supports to preserve the original column design, repaired existing beams with steel reinforcement and through-bolting, restored drainage systems, re-chinked the foundation, and matched all finishes to the home's original period detailing. Required significant custom problem-solving to maintain historical integrity while meeting modern structural standards.",
@@ -20,7 +20,7 @@
     {
       "folder": "triple-stack-barrel",
       "description": {
-        "title": "Framing & Triple stack barrel porch",
+        "title": "Framing & Triple Stack Barrel Porch",
         "type": "Restoration",
         "location": "Newport, RI",
         "description": "Oversaw framing for a large-scale build, followed by construction of a complex triple-arch porch with a barrel ceiling. Executed with minimal plan detail, requiring on-site problem solving and precise custom layout.",
@@ -37,18 +37,18 @@
     {
       "folder": "full-porch",
       "description": {
-        "title": "Porch - Start to finish",
+        "title": "Porch - Start to Finish",
         "type": "Restoration",
         "location": "Newport, RI",
         "description": "Full porch rebuild including removal of the existing foundation and installation of a new poured concrete base. Completed while supporting the second-story structure in place. Work included new posts, roof reframing, hurricane strapping, tongue-and-groove ceiling installation, and restoration of original corbels.",
         "featured": false,
-        "coverImage": "full-porch-cover.jpg",
+        "coverImage": "full-porch-cover.png",
         "gallery": [],
         "beforeAfter": [],
         "order": 3
       },
       "folderImages": [
-        "home-header.png"
+        "full-porch-cover.png"
       ]
     },
     {
@@ -71,7 +71,7 @@
     {
       "folder": "custom-staircase",
       "description": {
-        "title": "Custom maple staircase",
+        "title": "Custom Maple Staircase",
         "type": "Renovation",
         "location": "Aquidneck Island",
         "description": "Crafted a custom hard maple staircase with reinforced stringers for a completely solid, squeak-free build. Features include a blind-fastened horizontal railing system and clean integration with the upper deck.",
@@ -88,7 +88,7 @@
     {
       "folder": "circle-window",
       "description": {
-        "title": "Custom circle windows",
+        "title": "Custom Circle Windows",
         "type": "Restoration",
         "location": "Newport, RI",
         "description": "Fabricated custom trim for four circular windows after manufacturer pricing proved excessive. Built a jig to produce consistent, high-quality pieces in-house—delivering better craftsmanship while saving the homeowner thousands.",
@@ -105,7 +105,7 @@
     {
       "folder": "column-repair",
       "description": {
-        "title": "Column Repair",
+        "title": "Traditional Column Repair",
         "type": "Restoration",
         "location": "Newport, RI",
         "description": "Specializing in the restoration of traditional columns. This project involved repairing and reinforcing aging structural elements while maintaining the original proportions and architectural style.",

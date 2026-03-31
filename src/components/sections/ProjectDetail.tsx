@@ -1,3 +1,4 @@
+import { useLayoutEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { ProjectEntry } from '../../content/projects';
 import {
@@ -15,6 +16,16 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
   const coverPath = project.coverFilename
     ? projectAssetUrl(project.folder, project.coverFilename)
     : '';
+  const [coverIsVertical, setCoverIsVertical] = useState<boolean | null>(null);
+  const coverImgRef = useRef<HTMLImageElement>(null);
+
+  useLayoutEffect(() => {
+    setCoverIsVertical(null);
+    const img = coverImgRef.current;
+    if (img?.complete && img.naturalWidth > 0) {
+      setCoverIsVertical(img.naturalHeight > img.naturalWidth);
+    }
+  }, [coverPath]);
 
   return (
     <article className="space-y-16 md:space-y-24">
@@ -34,15 +45,28 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
         </p>
       </div>
 
-      {/* Cover image — natural aspect ratio, no crop */}
+      {/* Cover image — natural aspect ratio, no crop; portrait intrinsics → half display width */}
       {coverPath && (
-        <div className="overflow-hidden rounded-sm bg-[var(--color-border)]">
+        <div
+          className={`overflow-hidden rounded-sm bg-[var(--color-cream)] ${
+            coverIsVertical ? 'flex justify-center' : ''
+          }`}
+        >
           <img
+            ref={coverImgRef}
             src={coverPath}
             alt={altForProjectImage(project.coverFilename)}
-            className="w-full h-auto block"
+            className={`h-auto max-w-full block ${
+              coverIsVertical ? 'w-1/2' : 'w-full'
+            }`}
             loading="eager"
             decoding="async"
+            onLoad={(e) => {
+              const el = e.currentTarget;
+              if (el.naturalWidth > 0) {
+                setCoverIsVertical(el.naturalHeight > el.naturalWidth);
+              }
+            }}
           />
         </div>
       )}
@@ -78,7 +102,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
             {project.galleryFilenames.map((filename) => (
               <div
                 key={filename}
-                className="overflow-hidden rounded-sm bg-[var(--color-border)]"
+                className="overflow-hidden rounded-sm bg-[var(--color-cream)]"
               >
                 <img
                   src={projectAssetUrl(project.folder, filename)}
